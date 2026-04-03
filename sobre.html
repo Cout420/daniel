@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - Metalúrgica Daniela</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ff6600',
+                        secondary: '#1a1a1a',
+                        accent: '#003366',
+                        background: '#ffffff',
+                        foreground: '#1a1a1a',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body class="bg-background font-sans text-foreground flex flex-col min-h-screen" x-data="{ mobileMenuOpen: false, selectedImage: null }">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-40 w-full border-b bg-white/80 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto flex h-20 md:h-24 items-center justify-between px-4 md:px-8 relative">
+            <div class="relative z-50 shrink-0 flex items-center">
+                <a href="index.html" class="flex items-center group">
+                    <div class="relative flex items-center">
+                        <img src="https://i.imgur.com/yxFATfL.png" alt="Aceros Logo" class="h-28 md:h-40 w-auto object-contain absolute top-1/2 -translate-y-1/2 left-0 max-w-none transition-transform duration-300 group-hover:scale-105" style="margin-top: 8px;">
+                        <div class="w-36 md:w-56 h-20 md:h-24"></div>
+                    </div>
+                </a>
+            </div>
+
+            <nav class="hidden md:flex items-center justify-center flex-1 px-4">
+                <div class="flex items-center justify-center w-full gap-8 lg:gap-12 text-base font-medium text-gray-700">
+                    <a href="index.html" class="relative transition-colors hover:text-primary whitespace-nowrap py-2 group">Home<span class="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100 origin-left"></span></a>
+                    <a href="sobre.html" class="relative text-primary whitespace-nowrap py-2 group">Sobre Nós<span class="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-100 origin-left"></span></a>
+                    <a href="atuacao.html" class="relative transition-colors hover:text-primary whitespace-nowrap py-2 group">Mercado de Atuação<span class="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100 origin-left"></span></a>
+                    <a href="inovacao.html" class="relative transition-colors hover:text-primary whitespace-nowrap py-2 group">Inovação<span class="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100 origin-left"></span></a>
+                </div>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4 lg:gap-6 shrink-0">
+                <div class="flex items-center gap-2 text-sm font-bold text-slate-400">
+                    <button onclick="translatePage('pt')" class="hover:text-primary transition-colors cursor-pointer">PT</button>
+                    <span>|</span>
+                    <button onclick="translatePage('en')" class="hover:text-primary transition-colors cursor-pointer">EN</button>
+                    <span>|</span>
+                    <button onclick="translatePage('es')" class="hover:text-primary transition-colors cursor-pointer">ES</button>
+                    <span>|</span>
+                    <button onclick="translatePage('de')" class="hover:text-primary transition-colors cursor-pointer">DE</button>
+                    <span>|</span>
+                    <button onclick="translatePage('it')" class="hover:text-primary transition-colors cursor-pointer">IT</button>
+                    <span>|</span>
+                    <button onclick="translatePage('zh-CN')" class="hover:text-primary transition-colors cursor-pointer">ZH</button>
+                    <span>|</span>
+                    <button onclick="translatePage('fr')" class="hover:text-primary transition-colors cursor-pointer">FR</button>
+                </div>
+                <div class="h-8 w-px bg-gray-200 mx-2"></div>
+                <a href="contato.html" class="bg-primary text-white px-6 py-2 rounded-md shadow-md hover:shadow-lg transition-all font-medium">Contato</a>
+            </div>
+
+            <div class="flex md:hidden items-center gap-4">
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="p-2 text-gray-700 hover:bg-gray-100 rounded-md">
+                    <i data-lucide="menu" x-show="!mobileMenuOpen"></i>
+                    <i data-lucide="x" x-show="mobileMenuOpen"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenuOpen" x-cloak class="md:hidden border-t bg-white p-4 space-y-4 shadow-lg">
+            <nav class="flex flex-col gap-4">
+                <a href="index.html" class="text-sm font-medium text-gray-700 hover:text-primary">Home</a>
+                <a href="sobre.html" class="text-sm font-medium text-primary">Sobre Nós</a>
+                <a href="atuacao.html" class="text-sm font-medium text-gray-700 hover:text-primary">Mercado de Atuação</a>
+                <a href="inovacao.html" class="text-sm font-medium text-gray-700 hover:text-primary">Inovação</a>
+                <a href="contato.html" class="bg-primary text-white px-4 py-2 rounded-md text-center font-medium">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Image Modal -->
+        <div x-show="selectedImage" x-cloak class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 cursor-pointer" @click="selectedImage = null">
+            <img :src="selectedImage" alt="Ampliada" class="max-w-full max-h-[90vh] object-contain rounded-lg">
+        </div>
+
+        <!-- Hero Section -->
+        <section class="py-24 md:py-32 bg-slate-900 text-white relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+               <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                  <path d="M0 100 L100 0 L100 100 Z" fill="currentColor" />
+               </svg>
+            </div>
+            <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/30 rounded-full blur-[100px]"></div>
+
+            <div class="container mx-auto px-4 md:px-6 max-w-5xl text-center relative z-10">
+                <h1 class="text-5xl md:text-7xl font-bold font-heading mb-8 tracking-tight">Sobre Nós</h1>
+                <p class="text-2xl md:text-3xl text-slate-300 font-light leading-relaxed">Solidez, Tecnologia e Confiança</p>
+            </div>
+        </section>
+
+        <!-- Intro Section -->
+        <section class="py-20 md:py-28">
+            <div class="container mx-auto px-4 md:px-6 max-w-4xl">
+                <span class="text-primary font-bold tracking-widest uppercase text-sm mb-4 block">Quem Somos</span>
+                <h2 class="text-4xl md:text-5xl font-bold font-heading text-slate-900 mb-10 leading-tight">Conheça sobre a Metalúrgica Daniela</h2>
+                
+                <div class="space-y-8">
+                    <p class="text-xl md:text-2xl text-slate-700 leading-relaxed font-light">
+                        Nossa equipe altamente qualificada e experiente está pronta para atender clientes de todos os portes, de pequenas empresas a grandes multinacionais, fornecendo produtos, serviços e projetos de alta qualidade. Somos especializados no fornecimento de peças e serviços para diversos setores, como a indústria naval, mecânica, siderúrgica, química e de equipamentos de armazenagem.
+                    </p>
+                </div>
+
+                <!-- Setores -->
+                <div class="mt-16 pt-12 border-t border-slate-100">
+                    <h3 class="text-lg font-bold text-slate-900 mb-8 uppercase tracking-wide">Setores de Atuação</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+                        <div class="flex flex-col items-center text-center group">
+                            <div class="mb-4 p-4 rounded-full bg-slate-50 group-hover:bg-primary/10 transition-colors">
+                                <i data-lucide="anchor" class="w-8 h-8 text-primary"></i>
+                            </div>
+                            <span class="text-base font-medium text-slate-700 leading-tight">Indústria Naval</span>
+                        </div>
+                        <div class="flex flex-col items-center text-center group">
+                            <div class="mb-4 p-4 rounded-full bg-slate-50 group-hover:bg-primary/10 transition-colors">
+                                <i data-lucide="hammer" class="w-8 h-8 text-primary"></i>
+                            </div>
+                            <span class="text-base font-medium text-slate-700 leading-tight">Mecânica</span>
+                        </div>
+                        <div class="flex flex-col items-center text-center group">
+                            <div class="mb-4 p-4 rounded-full bg-slate-50 group-hover:bg-primary/10 transition-colors">
+                                <i data-lucide="factory" class="w-8 h-8 text-primary"></i>
+                            </div>
+                            <span class="text-base font-medium text-slate-700 leading-tight">Siderúrgica</span>
+                        </div>
+                        <div class="flex flex-col items-center text-center group">
+                            <div class="mb-4 p-4 rounded-full bg-slate-50 group-hover:bg-primary/10 transition-colors">
+                                <i data-lucide="flask-conical" class="w-8 h-8 text-primary"></i>
+                            </div>
+                            <span class="text-base font-medium text-slate-700 leading-tight">Química</span>
+                        </div>
+                        <div class="flex flex-col items-center text-center group">
+                            <div class="mb-4 p-4 rounded-full bg-slate-50 group-hover:bg-primary/10 transition-colors">
+                                <i data-lucide="container" class="w-8 h-8 text-primary"></i>
+                            </div>
+                            <span class="text-base font-medium text-slate-700 leading-tight">Armazenagem</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technology Section -->
+        <section class="py-24 bg-slate-50">
+            <div class="container mx-auto px-4 md:px-6 max-w-4xl">
+                <h2 class="text-3xl md:text-4xl font-bold font-heading text-slate-900 mb-8">Tecnologia & Inovação</h2>
+                <p class="text-xl md:text-2xl text-slate-700 leading-relaxed font-light mb-10">
+                    Para garantir a precisão e a eficiência em cada projeto, utilizamos tecnologia de ponta e softwares avançados, do planejamento à produção. A combinação de equipamentos de alta tecnologia e nossa vasta experiência nos permite entregar produtos e serviços de alta qualidade a preços competitivos.
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="check-circle-2" class="w-6 h-6 text-accent shrink-0 mt-1"></i>
+                        <span class="text-lg text-slate-600">Planejamento preciso</span>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="check-circle-2" class="w-6 h-6 text-accent shrink-0 mt-1"></i>
+                        <span class="text-lg text-slate-600">Softwares avançados</span>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <i data-lucide="check-circle-2" class="w-6 h-6 text-accent shrink-0 mt-1"></i>
+                        <span class="text-lg text-slate-600">Preços competitivos</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Infrastructure Section -->
+        <section class="py-24 bg-white">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold font-heading text-slate-900 mb-6 max-w-5xl mx-auto leading-tight">Usinagem - Equipamentos</h2>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group">
+                        <div class="aspect-[4/3] overflow-hidden bg-slate-100 relative">
+                            <img src="https://i.imgur.com/PpVkFgQ.png" alt="Infraestrutura 1" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        </div>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group">
+                        <div class="aspect-[4/3] overflow-hidden bg-slate-100 relative">
+                            <img src="https://i.imgur.com/iy6OyiJ.png" alt="Infraestrutura 2" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        </div>
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group">
+                        <div class="aspect-[4/3] overflow-hidden bg-slate-100 relative">
+                            <img src="https://i.imgur.com/X95Sw7d.png" alt="Infraestrutura 3" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quality & Certifications Section -->
+        <section id="qualidade" class="py-24 bg-slate-50">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold font-heading text-slate-900 mb-6">Qualidade & Certificações</h2>
+                    <p class="text-xl text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
+                        Garantia de excelência através de rigorosos processos de controle e certificações internacionais.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 flex flex-col md:flex-row h-full hover:shadow-xl transition-shadow duration-300">
+                        <div class="w-full md:w-2/5 h-64 md:h-auto relative shrink-0 cursor-zoom-in group" @click="selectedImage = 'https://i.imgur.com/QMNQ7aX.jpeg'">
+                           <img src="https://i.imgur.com/QMNQ7aX.jpeg" alt="Inovação e Desenvolvimento" class="w-full h-full object-cover absolute inset-0 transition-transform duration-500 group-hover:scale-105">
+                           <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                             <div class="bg-white/90 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">
+                               <i data-lucide="maximize-2" class="w-5 h-5 text-slate-700"></i>
+                             </div>
+                           </div>
+                        </div>
+                        <div class="p-8 md:w-3/5 flex flex-col justify-center">
+                          <h3 class="text-2xl font-bold font-heading text-slate-900 mb-4">Inovação e Desenvolvimento</h3>
+                          <p class="text-slate-600 leading-relaxed text-sm md:text-base">
+                            Investimos continuamente em pesquisa para aprimorar projetos e a metalurgia de peças fundidas. Desenvolvemos ligas especiais resistentes ao calor, à abrasão e à corrosão para garantir a máxima performance e durabilidade dos nossos produtos.
+                          </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 flex flex-col md:flex-row h-full hover:shadow-xl transition-shadow duration-300">
+                        <div class="w-full md:w-2/5 h-64 md:h-auto relative shrink-0 cursor-zoom-in group" @click="selectedImage = 'https://i.imgur.com/csD7p4i.jpeg'">
+                           <img src="https://i.imgur.com/csD7p4i.jpeg" alt="Certificado ISO 9001:2015" class="w-full h-full object-cover absolute inset-0 transition-transform duration-500 group-hover:scale-105">
+                           <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                             <div class="bg-white/90 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">
+                               <i data-lucide="maximize-2" class="w-5 h-5 text-slate-700"></i>
+                             </div>
+                           </div>
+                        </div>
+                        <div class="p-8 md:w-3/5 flex flex-col justify-center">
+                          <h3 class="text-2xl font-bold font-heading text-slate-900 mb-4">Certificado ISO 9001:2015</h3>
+                          <p class="text-slate-600 leading-relaxed text-sm md:text-base">
+                            Nosso compromisso com a qualidade é validado pela certificação ISO 9001:2015, garantindo que nossos processos e produtos atendem aos mais altos padrões internacionais de gestão da qualidade.
+                          </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-slate-100 flex flex-col md:flex-row h-full hover:shadow-xl transition-shadow duration-300">
+                        <div class="w-full md:w-2/5 h-64 md:h-auto relative shrink-0 cursor-zoom-in group" @click="selectedImage = 'https://i.imgur.com/CDCl73r.jpeg'">
+                           <img src="https://i.imgur.com/CDCl73r.jpeg" alt="Certificado de Calibração" class="w-full h-full object-cover absolute inset-0 transition-transform duration-500 group-hover:scale-105">
+                           <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                             <div class="bg-white/90 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0">
+                               <i data-lucide="maximize-2" class="w-5 h-5 text-slate-700"></i>
+                             </div>
+                           </div>
+                        </div>
+                        <div class="p-8 md:w-3/5 flex flex-col justify-center">
+                          <h3 class="text-2xl font-bold font-heading text-slate-900 mb-4">Certificado de Calibração</h3>
+                          <p class="text-slate-600 leading-relaxed text-sm md:text-base">
+                            Certificado de revisão / calibração N° 2044 / 19 para o equipamento Spectrometro de Emissão Óptica, garantindo a precisão das nossas análises.
+                          </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Instalações Section -->
+        <section class="py-24 bg-slate-50">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold font-heading text-slate-900 mb-6">Nossas Instalações</h2>
+                    <p class="text-xl text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
+                        Conheça nossa estrutura moderna e equipada para atender as mais diversas demandas do mercado.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300 h-[400px] group">
+                        <img src="https://i.imgur.com/lOKizSW.png" alt="Instalações 1" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300 h-[400px] group">
+                        <img src="https://i.imgur.com/LQGMmYF.png" alt="Instalações 2" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Catalog Downloads Section -->
+        <section class="py-20 bg-accent relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+               <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-[100px] transform translate-x-1/2 -translate-y-1/2"></div>
+               <div class="absolute bottom-0 left-0 w-64 h-64 bg-primary rounded-full blur-[80px] transform -translate-x-1/2 translate-y-1/2"></div>
+            </div>
+
+            <div class="container mx-auto px-4 md:px-6 relative z-10">
+                <div class="text-center mb-16 max-w-3xl mx-auto">
+                    <span class="text-primary font-bold tracking-widest uppercase text-xs mb-3 block">Downloads</span>
+                    <h2 class="text-3xl md:text-4xl font-bold font-heading text-white mb-6">Catálogos Técnicos</h2>
+                    <p class="text-slate-300 text-lg">Baixe a documentação completa e especificações técnicas de nossas linhas de produtos.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                    <!-- Catalog 1 -->
+                    <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/15 transition-all duration-300 group flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i data-lucide="briefcase" class="w-8 h-8 text-primary"></i>
+                        </div>
+                        <h3 class="text-white font-bold font-heading text-lg mb-2 min-h-[56px] flex items-center justify-center">Apresentação Institucional & Capacidade Técnica</h3>
+                        <div class="mt-auto pt-6 w-full">
+                            <a href="#" download class="flex items-center justify-center gap-2 w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-lg transition-colors shadow-lg shadow-black/20">
+                                <i data-lucide="download" class="w-4 h-4"></i> Baixar PDF
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Catalog 2 -->
+                    <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/15 transition-all duration-300 group flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i data-lucide="anchor" class="w-8 h-8 text-blue-400"></i>
+                        </div>
+                        <h3 class="text-white font-bold font-heading text-lg mb-2 min-h-[56px] flex items-center justify-center">Equipamentos de Convés, Atracação e Reboque</h3>
+                        <div class="mt-auto pt-6 w-full">
+                            <a href="#" download class="flex items-center justify-center gap-2 w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-lg transition-colors shadow-lg shadow-black/20">
+                                <i data-lucide="download" class="w-4 h-4"></i> Baixar PDF
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Catalog 3 -->
+                    <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/15 transition-all duration-300 group flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i data-lucide="box" class="w-8 h-8 text-amber-500"></i>
+                        </div>
+                        <h3 class="text-white font-bold font-heading text-lg mb-2 min-h-[56px] flex items-center justify-center">Soluções de Armazenagem e Racks Industriais</h3>
+                        <div class="mt-auto pt-6 w-full">
+                            <a href="#" download class="flex items-center justify-center gap-2 w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-lg transition-colors shadow-lg shadow-black/20">
+                                <i data-lucide="download" class="w-4 h-4"></i> Baixar PDF
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Catalog 4 -->
+                    <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/15 transition-all duration-300 group flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <div class="w-8 h-8 text-cyan-400">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                            </div>
+                        </div>
+                        <h3 class="text-white font-bold font-heading text-lg mb-2 min-h-[56px] flex items-center justify-center">Estações de Tratamento de Água e Efluentes</h3>
+                        <div class="mt-auto pt-6 w-full">
+                            <a href="#" download class="flex items-center justify-center gap-2 w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-lg transition-colors shadow-lg shadow-black/20">
+                                <i data-lucide="download" class="w-4 h-4"></i> Baixar PDF
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Catalog 5 -->
+                    <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/15 transition-all duration-300 group flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <div class="w-8 h-8 text-purple-400">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+                            </div>
+                        </div>
+                        <h3 class="text-white font-bold font-heading text-lg mb-2 min-h-[56px] flex items-center justify-center">Peneiras de Rolos para Pelotização</h3>
+                        <div class="mt-auto pt-6 w-full">
+                            <a href="#" download class="flex items-center justify-center gap-2 w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-lg transition-colors shadow-lg shadow-black/20">
+                                <i data-lucide="download" class="w-4 h-4"></i> Baixar PDF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pillars Section -->
+        <section class="py-24 md:py-32">
+            <div class="container mx-auto px-4 md:px-6 max-w-6xl">
+                <div class="text-center mb-20">
+                    <h2 class="text-3xl md:text-5xl font-bold font-heading text-slate-900">Nossos Pilares</h2>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-12">
+                    <!-- Experiência -->
+                    <div class="flex flex-col items-start">
+                        <div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6">
+                            <i data-lucide="award" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold font-heading text-slate-900 mb-4">Experiência</h3>
+                        <p class="text-lg text-slate-600 leading-relaxed">
+                            A experiência é o alicerce do nosso Sistema de Gestão da Qualidade. Ela garante a excelência em tudo que fazemos, seja na produção de um produto, na execução de um projeto ou na prestação de um serviço.
+                        </p>
+                    </div>
+
+                    <!-- Profissionalismo -->
+                    <div class="flex flex-col items-start">
+                        <div class="w-16 h-16 rounded-2xl bg-orange-50 flex items-center justify-center text-accent mb-6">
+                            <i data-lucide="target" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold font-heading text-slate-900 mb-4">Profissionalismo</h3>
+                        <p class="text-lg text-slate-600 leading-relaxed">
+                            Na Metalúrgica Daniela, nosso compromisso é com você. Atendemos a todos os requisitos do cliente e superamos as expectativas, garantindo sua plena satisfação com nossos produtos e serviços.
+                        </p>
+                    </div>
+
+                    <!-- Motivação -->
+                    <div class="flex flex-col items-start">
+                        <div class="w-16 h-16 rounded-2xl bg-green-50 flex items-center justify-center text-green-600 mb-6">
+                            <i data-lucide="zap" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold font-heading text-slate-900 mb-4">Motivação</h3>
+                        <p class="text-lg text-slate-600 leading-relaxed">
+                            Garantimos a qualidade através de investimentos contínuos em tecnologia, capacitação da nossa equipe e um profundo comprometimento com a confiabilidade. Nossa motivação é a sua total confiança.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced CTA -->
+        <section class="py-20 bg-primary text-white text-center">
+            <div class="container mx-auto px-4 max-w-4xl">
+               <h2 class="text-3xl md:text-4xl font-bold mb-6">Pronto para elevar seu projeto?</h2>
+               <p class="text-xl text-slate-100 mb-10 leading-relaxed">
+                 Nossa equipe está pronta para atender sua demanda. Tire suas dúvidas, consulte orçamentos ou agende uma reunião técnica.
+               </p>
+               
+               <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                 <a href="https://wa.me/551146442969?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20falar%20sobre%20um%20projeto." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-[#25D366] text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-[#20bd5a] transition-all shadow-lg hover:shadow-green-900/20">
+                   <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                   Falar no WhatsApp
+                 </a>
+                 <a href="contato.html" class="inline-block bg-white text-primary px-10 py-4 rounded-full font-bold text-lg hover:bg-slate-100 transition-colors shadow-lg">
+                   Solicitar Orçamento
+                 </a>
+               </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-primary text-white text-center">
+            <div class="container mx-auto px-4 md:px-6 max-w-4xl">
+                <h2 class="text-3xl md:text-5xl font-bold font-heading mb-6">Vamos Conversar Sobre a Sua Necessidade?</h2>
+                <p class="text-lg md:text-xl text-white/90 mb-10 leading-relaxed">Nossa equipe de especialistas está pronta para entender seu projeto e oferecer a solução em aço ideal para você. Clique nos botões abaixo e fale conosco diretamente pelo WhatsApp.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="https://wa.me/551146442969" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
+                        <i data-lucide="message-circle" class="w-6 h-6"></i>
+                        WhatsApp (11) 4644-2969
+                    </a>
+                    <a href="https://wa.me/551146442977" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
+                        <i data-lucide="message-circle" class="w-6 h-6"></i>
+                        WhatsApp (11) 4644-2977
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-16 border-t border-white/10">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="space-y-6">
+                    <img src="https://i.imgur.com/yxFATfL.png" alt="Aceros Logo" class="h-20 w-auto brightness-0 invert">
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Líder em soluções metalúrgicas de alta performance, atendendo aos setores mais exigentes com inovação e qualidade superior.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold font-heading mb-6">Links Rápidos</h3>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="sobre.html" class="hover:text-white transition-colors">Sobre Nós</a></li>
+                        <li><a href="atuacao.html" class="hover:text-white transition-colors">Mercado de Atuação</a></li>
+                        <li><a href="inovacao.html" class="hover:text-white transition-colors">Inovação</a></li>
+                        <li><a href="contato.html" class="hover:text-white transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold font-heading mb-6">Mercados</h3>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a href="atuacao-siderurgia.html" class="hover:text-white transition-colors">Siderurgia</a></li>
+                        <li><a href="atuacao-naval.html" class="hover:text-white transition-colors">Naval</a></li>
+                        <li><a href="atuacao-mineracao.html" class="hover:text-white transition-colors">Mineração</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Química & Petroquímica</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Mecânica Pesada</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold font-heading mb-6">Contato</h3>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-primary shrink-0"></i>
+                            <span>Rua Exemplo, 123 - Distrito Industrial<br>Itaquaquecetuba - SP</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-primary shrink-0 mt-1"></i>
+                            <div class="flex flex-col">
+                                <span>+55 (11) 4644-2969</span>
+                                <span>+55 (11) 4644-2977</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-primary shrink-0 mt-1"></i>
+                            <div class="flex flex-col">
+                                <span>vendas@metalurgicadaniela.com.br</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-16 pt-8 border-t border-white/5 text-center text-slate-500 text-xs">
+                <p>&copy; 2024 Metalúrgica Daniela. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <!-- Google Translate -->
+    <div id="google_translate_element" style="display:none;"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'pt', includedLanguages: 'pt,en,es,de,it,zh-CN,fr', autoDisplay: false}, 'google_translate_element');
+        }
+        function translatePage(lang) {
+            var selectField = document.querySelector("select.goog-te-combo");
+            if (selectField) {
+                selectField.value = lang;
+                selectField.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Metalúrgica Daniela</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ff6600',
+                        secondary: '#1a1a1a',
+                        accent: '#003366',
+                        background: '#ffffff',
+                        foreground: '#1a1a1a',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body class="bg-background font-sans text-foreground flex flex-col min-h-screen" x-data="{ mobileMenuOpen: false }">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-40 w-full border-b bg-white/80 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto flex h-20 md:h-24 items-center justify-between px-4 md:px-8 relative">
+            <div class="relative z-50 shrink-0 flex items-center">
+                <a href="index.html" class="flex items-center group">
+                    <div class="relative flex items-center">
+                        <img src="https://i.imgur.com/yxFATfL.png" alt="Aceros Logo" class="h-28 md:h-40 w-auto object-contain absolute top-1/2 -translate-y-1/2 left-0 max-w-none transition-transform duration-300 group-hover:scale-105" style="margin-top: 8px;">
+                        <div class="w-36 md:w-56 h-20 md:h-24"></div>
+                    </div>
+                </a>
+            </div>
+
+            <nav class="hidden md:flex items-center justify-center flex-1 px-4">
+                <div class="flex items-center justify-center w-full gap-8 lg:gap-12 text-base font-medium text-gray-700">
+                    <a href="index.html" class="relative transition-colors hover:text-primary whitespace-nowrap py-2 group">Home<span class="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100 origin-left"></span></a>
+                    <a href="sobre.html" class="relative transition-colors hover:text-primary whitespace-nowrap py-2 group">Sobre Nós<span class="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100 origin-left"></span></a>
+                    <a href="atuacao.html" class="relative transition-colors hover:text-primary whitespace-nowrap py-2 group">Mercado de Atuação<span class="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100 origin-left"></span></a>
+                    <a href="inovacao.html" class="relative transition-colors hover:text-primary whitespace-nowrap py-2 group">Inovação<span class="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100 origin-left"></span></a>
+                </div>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4 lg:gap-6 shrink-0">
+                <div class="flex items-center gap-2 text-sm font-bold text-slate-400">
+                    <button onclick="translatePage('pt')" class="hover:text-primary transition-colors cursor-pointer">PT</button>
+                    <span>|</span>
+                    <button onclick="translatePage('en')" class="hover:text-primary transition-colors cursor-pointer">EN</button>
+                    <span>|</span>
+                    <button onclick="translatePage('es')" class="hover:text-primary transition-colors cursor-pointer">ES</button>
+                    <span>|</span>
+                    <button onclick="translatePage('de')" class="hover:text-primary transition-colors cursor-pointer">DE</button>
+                    <span>|</span>
+                    <button onclick="translatePage('it')" class="hover:text-primary transition-colors cursor-pointer">IT</button>
+                    <span>|</span>
+                    <button onclick="translatePage('zh-CN')" class="hover:text-primary transition-colors cursor-pointer">ZH</button>
+                    <span>|</span>
+                    <button onclick="translatePage('fr')" class="hover:text-primary transition-colors cursor-pointer">FR</button>
+                </div>
+                <div class="h-8 w-px bg-gray-200 mx-2"></div>
+                <a href="contato.html" class="bg-primary text-white px-6 py-2 rounded-md shadow-md hover:shadow-lg transition-all font-medium">Contato</a>
+            </div>
+
+            <div class="flex md:hidden items-center gap-4">
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="p-2 text-gray-700 hover:bg-gray-100 rounded-md">
+                    <i data-lucide="menu" x-show="!mobileMenuOpen"></i>
+                    <i data-lucide="x" x-show="mobileMenuOpen"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenuOpen" x-cloak class="md:hidden border-t bg-white p-4 space-y-4 shadow-lg">
+            <nav class="flex flex-col gap-4">
+                <a href="index.html" class="text-sm font-medium text-gray-700 hover:text-primary">Home</a>
+                <a href="sobre.html" class="text-sm font-medium text-gray-700 hover:text-primary">Sobre Nós</a>
+                <a href="atuacao.html" class="text-sm font-medium text-gray-700 hover:text-primary">Mercado de Atuação</a>
+                <a href="inovacao.html" class="text-sm font-medium text-gray-700 hover:text-primary">Inovação</a>
+                <a href="contato.html" class="bg-primary text-white px-4 py-2 rounded-md text-center font-medium">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow" x-data="{ 
+        isSuccess: false, 
+        isSubmitting: false,
+        formData: {
+            name: '',
+            email: '',
+            phone: '',
+            message: ''
+        },
+        submitForm() {
+            if (this.isSubmitting) return;
+            this.isSubmitting = true;
+            
+            // Format WhatsApp message
+            const whatsappMessage = `*Novo Pedido de Orçamento via Site*\n\n` +
+                `*Nome:* ${this.formData.name}\n` +
+                `*Email:* ${this.formData.email}\n` +
+                `*Telefone:* ${this.formData.phone}\n\n` +
+                `*Mensagem:*\n${this.formData.message}`;
+
+            const companyPhone = '551146442969'; 
+            const url = `https://wa.me/${companyPhone}?text=${encodeURIComponent(whatsappMessage)}`;
+            
+            this.isSuccess = true;
+            
+            setTimeout(() => {
+                window.open(url, '_blank');
+                this.isSuccess = false;
+                this.isSubmitting = false;
+                this.formData = { name: '', email: '', phone: '', message: '' };
+            }, 1500);
+        }
+    }">
+        <!-- Container Principal -->
+        <div class="container mx-auto px-4 md:px-6 py-16 md:py-24">
+            
+            <!-- Cabeçalho Institucional -->
+            <div class="mb-16 border-b border-gray-200 pb-8">
+               <h1 class="text-4xl font-bold font-heading text-slate-900 mb-6 uppercase tracking-tight">
+                 Solicite seu orçamento
+               </h1>
+               <p class="text-lg text-slate-600 leading-relaxed max-w-4xl">
+                 A Metalúrgica Daniela é especialista em fornecer soluções completas em estruturas e serviços metalúrgicos. Seja para produtos personalizados, projetos sob medida ou serviços de manutenção, nossa equipe está pronta para atender às suas necessidades com qualidade e eficiência.
+               </p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-12 lg:gap-20">
+                
+                <!-- Coluna Esquerda: Informações de Contato + Imagem -->
+                <div class="lg:col-span-1 space-y-10">
+                   
+                   <!-- Bloco de Informações -->
+                   <div>
+                      <h3 class="text-2xl font-bold font-heading text-slate-900 mb-6 border-l-4 border-primary pl-4">
+                        Contate-nos
+                      </h3>
+                      
+                      <div class="space-y-8 text-slate-700">
+                         <div class="flex items-start gap-4">
+                            <i data-lucide="clock" class="w-5 h-5 text-primary mt-1 flex-shrink-0"></i>
+                            <p class="font-medium">Atendimento de segunda a sexta das 8h às 18h</p>
+                         </div>
+                         
+                         <div>
+                            <p class="font-bold text-lg text-slate-900">+55 (11) 4644-2969</p>
+                            <p class="font-bold text-lg text-slate-900">+55 (11) 4644-2977</p>
+                         </div>
+                         
+                         <div>
+                            <span class="block text-sm font-bold text-slate-400 uppercase tracking-wider mb-1">E-mail</span>
+                            <div class="flex flex-col gap-1">
+                                <p class="font-medium break-all">vendas@metalurgicadaniela.com.br</p>
+                            </div>
+                         </div>
+                         
+                         <div>
+                            <span class="block text-sm font-bold text-slate-400 uppercase tracking-wider mb-1">Endereço</span>
+                            <p class="font-medium">Rua Alfa, nº 299, Bairro Una</p>
+                            <p class="font-medium">Itaquaquecetuba/SP 08599-670</p>
+                         </div>
+                      </div>
+                   </div>
+
+                   <!-- Imagem Call Center -->
+                   <div class="rounded-xl overflow-hidden shadow-lg border border-gray-100">
+                      <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop" alt="Customer Service" class="w-full h-64 object-cover hover:scale-105 transition-transform duration-700">
+                   </div>
+
+                </div>
+
+                <!-- Coluna Direita: Formulário -->
+                <div class="lg:col-span-2 bg-slate-50 p-8 md:p-10 rounded-xl border border-gray-100">
+                   <div class="mb-8">
+                     <p class="text-slate-600 text-lg">
+                       Preencha os campos abaixo com suas informações e entraremos em contato o mais breve possível para entender como podemos ajudar você.
+                     </p>
+                   </div>
+
+                   <div x-show="isSuccess" x-cloak class="bg-green-100 border border-green-200 rounded-lg p-8 text-center h-full flex flex-col justify-center items-center">
+                      <i data-lucide="check-circle-2" class="h-16 w-16 text-green-600 mb-6"></i>
+                      <h3 class="text-2xl font-bold text-green-800 mb-2">Redirecionando para o WhatsApp...</h3>
+                      <p class="text-green-700 text-lg">Sua mensagem foi formatada e está pronta para envio.</p>
+                   </div>
+
+                   <form x-show="!isSuccess" @submit.prevent="submitForm()" class="space-y-6">
+                      
+                      <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                          <label class="text-sm font-bold text-slate-800">Nome</label>
+                          <input type="text" x-model="formData.name" required placeholder="Seu nome completo" class="w-full px-4 bg-white border border-gray-300 rounded-md h-12 text-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all">
+                        </div>
+                        
+                        <div class="space-y-2">
+                          <label class="text-sm font-bold text-slate-800">Telefone</label>
+                          <input type="text" x-model="formData.phone" required placeholder="(00) 00000-0000" class="w-full px-4 bg-white border border-gray-300 rounded-md h-12 text-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all">
+                        </div>
+                      </div>
+
+                      <div class="space-y-2">
+                        <label class="text-sm font-bold text-slate-800">Email</label>
+                        <input type="email" x-model="formData.email" required placeholder="seu@email.com" class="w-full px-4 bg-white border border-gray-300 rounded-md h-12 text-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all">
+                      </div>
+
+                      <div class="space-y-2">
+                        <label class="text-sm font-bold text-slate-800">Mensagem</label>
+                        <textarea x-model="formData.message" required placeholder="Descreva sua solicitação..." class="w-full px-4 py-4 bg-white border border-gray-300 rounded-md min-h-[180px] text-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"></textarea>
+                      </div>
+
+                      <div class="pt-2">
+                        <button type="submit" :disabled="isSubmitting" class="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded text-lg w-full md:w-auto min-w-[200px] flex items-center justify-center gap-2 transition-all disabled:opacity-50">
+                          <span x-show="!isSubmitting">Enviar</span>
+                          <span x-show="isSubmitting">Enviando...</span>
+                          <i data-lucide="send" class="w-4 h-4" x-show="!isSubmitting"></i>
+                        </button>
+                        <p class="text-xs text-slate-500 mt-3">
+                          Ao clicar em enviar, você será redirecionado para o WhatsApp da nossa equipe.
+                        </p>
+                      </div>
+                   </form>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-primary text-white text-center">
+            <div class="container mx-auto px-4 md:px-6 max-w-4xl">
+                <h2 class="text-3xl md:text-5xl font-bold font-heading mb-6">Vamos Conversar Sobre a Sua Necessidade?</h2>
+                <p class="text-lg md:text-xl text-white/90 mb-10 leading-relaxed">Nossa equipe de especialistas está pronta para entender seu projeto e oferecer a solução em aço ideal para você. Clique nos botões abaixo e fale conosco diretamente pelo WhatsApp.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="https://wa.me/551146442969" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
+                        <i data-lucide="message-circle" class="w-6 h-6"></i>
+                        WhatsApp (11) 4644-2969
+                    </a>
+                    <a href="https://wa.me/551146442977" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
+                        <i data-lucide="message-circle" class="w-6 h-6"></i>
+                        WhatsApp (11) 4644-2977
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Mapa - Full Width -->
+        <section class="w-full h-[500px] relative bg-slate-200 border-t border-gray-300">
+           <iframe width="100%" height="100%" id="gmap_canvas" src="https://maps.google.com/maps?q=Rua%20Alfa%2C%20299%2C%20Itaquaquecetuba%2C%20SP&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" title="Localização Metalúrgica Daniela" class="w-full h-full"></iframe>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-16 border-t border-white/10">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="space-y-6">
+                    <img src="https://i.imgur.com/yxFATfL.png" alt="Aceros Logo" class="h-20 w-auto brightness-0 invert">
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Líder em soluções metalúrgicas de alta performance, atendendo aos setores mais exigentes com inovação e qualidade superior.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold font-heading mb-6">Links Rápidos</h3>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="sobre.html" class="hover:text-white transition-colors">Sobre Nós</a></li>
+                        <li><a href="atuacao.html" class="hover:text-white transition-colors">Mercado de Atuação</a></li>
+                        <li><a href="inovacao.html" class="hover:text-white transition-colors">Inovação</a></li>
+                        <li><a href="contato.html" class="hover:text-white transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold font-heading mb-6">Mercados</h3>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a href="atuacao-siderurgia.html" class="hover:text-white transition-colors">Siderurgia</a></li>
+                        <li><a href="atuacao-naval.html" class="hover:text-white transition-colors">Naval</a></li>
+                        <li><a href="atuacao-mineracao.html" class="hover:text-white transition-colors">Mineração</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Química & Petroquímica</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Mecânica Pesada</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold font-heading mb-6">Contato</h3>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-primary shrink-0"></i>
+                            <span>Rua Exemplo, 123 - Distrito Industrial<br>Itaquaquecetuba - SP</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-primary shrink-0 mt-1"></i>
+                            <div class="flex flex-col">
+                                <span>+55 (11) 4644-2969</span>
+                                <span>+55 (11) 4644-2977</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-primary shrink-0 mt-1"></i>
+                            <div class="flex flex-col">
+                                <span>vendas@metalurgicadaniela.com.br</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-16 pt-8 border-t border-white/5 text-center text-slate-500 text-xs">
+                <p>&copy; 2024 Metalúrgica Daniela. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <!-- Google Translate -->
+    <div id="google_translate_element" style="display:none;"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'pt', includedLanguages: 'pt,en,es,de,it,zh-CN,fr', autoDisplay: false}, 'google_translate_element');
+        }
+        function translatePage(lang) {
+            var selectField = document.querySelector("select.goog-te-combo");
+            if (selectField) {
+                selectField.value = lang;
+                selectField.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inovação - Metalúrgica Daniela</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ff6600',
+                        secondary: '#1a1a1a',
+                        accent: '#003366',
+                        background: '#ffffff',
+                        foreground: '#1a1a1a',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body class="bg-background font-sans text-foreground flex flex-col min-h-screen" x-data="{ mobileMenuOpen: false }">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-40 w-full border-b bg-white/80 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto flex h-20 md:h-24 items-center justify-between px-4 md:px-8 relative">
+            <div class="relative z-50 shrink-0 flex items-center">
+                <a href="index.html" class="flex items-center group">
+                    <div class="relative flex items-center">
+                        <img src="https://i.imgur.com/yxFATfL.png" alt="Aceros Logo" class="h-28 md:h-40 w-auto object-contain absolute top-1/2 -translate-y-1/2 left-0 max-w-none transition-transform duration-300 group-hover:scale-105" style="margin-top: 8px;" referrerPolicy="no-referrer">
+                        <div class="w-36 md:w-56 h-20 md:h-24"></div>
+                    </div>
+                </a>
+            </div>
+
+            <nav class="hidden md:flex items-center justify-center flex-1 px-4">
+                <div class="flex items-center justify-center w-full gap-8 lg:gap-12 text-base font-medium text-gray-700">
+                    <a href="index.html" class="relative transition-colors hover:text-primary whitespace-nowrap py-2 group">Home<span class="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100 origin-left"></span></a>
+                    <a href="sobre.html" class="relative transition-colors hover:text-primary whitespace-nowrap py-2 group">Sobre Nós<span class="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100 origin-left"></span></a>
+                    <a href="atuacao.html" class="relative transition-colors hover:text-primary whitespace-nowrap py-2 group">Mercado de Atuação<span class="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100 origin-left"></span></a>
+                    <a href="inovacao.html" class="relative text-primary whitespace-nowrap py-2 group">Inovação<span class="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-100 origin-left"></span></a>
+                </div>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4 lg:gap-6 shrink-0">
+                <div class="flex items-center gap-2 text-sm font-bold text-slate-400">
+                    <button onclick="translatePage('pt')" class="hover:text-primary transition-colors cursor-pointer">PT</button>
+                    <span>|</span>
+                    <button onclick="translatePage('en')" class="hover:text-primary transition-colors cursor-pointer">EN</button>
+                    <span>|</span>
+                    <button onclick="translatePage('es')" class="hover:text-primary transition-colors cursor-pointer">ES</button>
+                    <span>|</span>
+                    <button onclick="translatePage('de')" class="hover:text-primary transition-colors cursor-pointer">DE</button>
+                    <span>|</span>
+                    <button onclick="translatePage('it')" class="hover:text-primary transition-colors cursor-pointer">IT</button>
+                    <span>|</span>
+                    <button onclick="translatePage('zh-CN')" class="hover:text-primary transition-colors cursor-pointer">ZH</button>
+                    <span>|</span>
+                    <button onclick="translatePage('fr')" class="hover:text-primary transition-colors cursor-pointer">FR</button>
+                </div>
+                <div class="h-8 w-px bg-gray-200 mx-2"></div>
+                <a href="contato.html" class="bg-primary text-white px-6 py-2 rounded-md shadow-md hover:shadow-lg transition-all font-medium">Contato</a>
+            </div>
+
+            <div class="flex md:hidden items-center gap-4">
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="p-2 text-gray-700 hover:bg-gray-100 rounded-md">
+                    <i data-lucide="menu" x-show="!mobileMenuOpen"></i>
+                    <i data-lucide="x" x-show="mobileMenuOpen"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenuOpen" x-cloak class="md:hidden border-t bg-white p-4 space-y-4 shadow-lg">
+            <nav class="flex flex-col gap-4">
+                <a href="index.html" class="text-sm font-medium text-gray-700 hover:text-primary">Home</a>
+                <a href="sobre.html" class="text-sm font-medium text-gray-700 hover:text-primary">Sobre Nós</a>
+                <a href="atuacao.html" class="text-sm font-medium text-gray-700 hover:text-primary">Mercado de Atuação</a>
+                <a href="inovacao.html" class="text-sm font-medium text-primary">Inovação</a>
+                <a href="contato.html" class="bg-primary text-white px-4 py-2 rounded-md text-center font-medium">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section class="py-24 bg-slate-900 text-white relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+               <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                  <path d="M0 100 L100 0 L100 100 Z" fill="currentColor" />
+               </svg>
+            </div>
+            <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/30 rounded-full blur-[100px]"></div>
+            
+            <div class="container mx-auto px-4 md:px-6 relative z-10">
+                <div class="max-w-4xl">
+                    <div class="flex items-center gap-2 mb-4 text-accent font-bold tracking-widest uppercase text-sm">
+                       <i data-lucide="lightbulb" class="w-5 h-5"></i>
+                       <span>R&D e Tecnologia</span>
+                    </div>
+                    <h1 class="text-5xl md:text-7xl font-bold font-heading mb-6 tracking-tight">Inovação</h1>
+                    <p class="text-xl md:text-2xl text-slate-300 font-light leading-relaxed max-w-2xl">
+                      Moldando o futuro da indústria mecânica
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Intro & Expertise -->
+        <section class="py-24">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="grid lg:grid-cols-2 gap-16 items-start">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold font-heading text-slate-900 mb-6">Conhecimento e Tecnologia Avançada</h2>
+                        <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                          Com o objetivo de moldar a mecânica de um futuro mais sustentável, a Metalúrgica Daniela investe continuamente em inovação. Para isso, estabelecemos parcerias estratégicas e fomentamos programas internos que incentivam o desenvolvimento de novas tecnologias e processos, garantindo soluções mais eficientes e responsáveis para nossos clientes e para o meio ambiente.
+                        </p>
+                        <p class="text-lg text-slate-600 leading-relaxed">
+                          Nossa equipe técnica é formada por profissionais com vasta experiência e conhecimento especializado. Utilizamos essa expertise para desenvolver projetos detalhados e específicos para cada área de atuação, garantindo a excelência em serviços como Cálculo Estrutural, Cálculo por Elementos Finitos, Matemática Aplicada e AutoCAD.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-50 p-8 rounded-2xl border border-slate-100">
+                        <h3 class="font-bold text-slate-900 mb-6 flex items-center gap-2">
+                          <i data-lucide="cpu" class="w-5 h-5 text-primary"></i> Stack Tecnológico
+                        </h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-center p-4 bg-white rounded-lg shadow-sm">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mr-3"></i>
+                                <span class="font-medium text-slate-700">Cálculo Estrutural Avançado</span>
+                            </li>
+                            <li class="flex items-center p-4 bg-white rounded-lg shadow-sm">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mr-3"></i>
+                                <span class="font-medium text-slate-700">Análise por Elementos Finitos (FEA)</span>
+                            </li>
+                            <li class="flex items-center p-4 bg-white rounded-lg shadow-sm">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mr-3"></i>
+                                <span class="font-medium text-slate-700">Hidrodinâmica Computacional</span>
+                            </li>
+                            <li class="flex items-center p-4 bg-white rounded-lg shadow-sm">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-green-500 mr-3"></i>
+                                <span class="font-medium text-slate-700">AutoCAD & Modelagem 3D</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Naval Solutions & Kort Nozzle -->
+        <section class="py-24 bg-slate-50 relative overflow-hidden">
+            <div class="container mx-auto px-4 md:px-6 relative z-10">
+                <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-white rounded-2xl shadow-xl rotate-2 opacity-50"></div>
+                        <img src="https://i.imgur.com/JhVqRaq.png" alt="Kort Nozzle System" class="relative rounded-2xl shadow-2xl w-full h-auto z-10" referrerPolicy="no-referrer">
+                    </div>
+                    
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase mb-4">
+                           <i data-lucide="anchor" class="w-4 h-4"></i> Engenharia Naval
+                        </div>
+                        <h2 class="text-3xl md:text-4xl font-bold font-heading text-slate-900 mb-6">Soluções Navais & Propulsão</h2>
+                        <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                          Para a indústria naval brasileira, somos especialistas em soluções inovadoras. Com o uso de softwares de hidrodinâmica, realizamos análises avançadas que incluem cálculo de vasos, projeto de plano de linhas, cálculo de velocidade, bollard pull e resistência ao avanço, entregando resultados precisos e de alta qualidade para impulsionar o seu negócio.
+                        </p>
+                        <p class="text-lg text-slate-600 leading-relaxed">
+                          Para otimizar a velocidade do bollard pull, essencial para rebocadores, a Metalúrgica Daniela (MD) projeta e constrói sistemas propulsivos (eixo de pá fixa ou passo variável) e acessórios para o sistema azimutal. Atendemos os maiores armadores e empresas de tecnologia do Brasil.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Kort Benefits Stats -->
+                <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12">
+                    <div class="text-center mb-10">
+                        <h3 class="text-2xl font-bold font-heading text-slate-900">Kort Nozzle (Modelo Rice Speed)</h3>
+                        <div class="h-1 w-20 bg-accent mx-auto mt-4 rounded-full"></div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="text-center p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-primary/30 transition-colors">
+                            <i data-lucide="trending-up" class="w-10 h-10 text-green-600 mx-auto mb-4"></i>
+                            <div class="text-4xl font-bold text-slate-900 mb-2 font-heading">50%</div>
+                            <p class="text-slate-600 font-medium">mais tração de amarração à frente (bollard pull)</p>
+                        </div>
+                        <div class="text-center p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-primary/30 transition-colors">
+                            <i data-lucide="anchor" class="w-10 h-10 text-primary mx-auto mb-4"></i>
+                            <div class="text-4xl font-bold text-slate-900 mb-2 font-heading">40%</div>
+                            <p class="text-slate-600 font-medium">mais tração de amarração à popa (bollard pull)</p>
+                        </div>
+                        <div class="text-center p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-primary/30 transition-colors">
+                            <i data-lucide="ship" class="w-10 h-10 text-accent mx-auto mb-4"></i>
+                            <div class="text-4xl font-bold text-slate-900 mb-2 font-heading">+1 nó</div>
+                            <p class="text-slate-600 font-medium">de aumento na velocidade de corrida livre</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- History Timeline -->
+        <section class="py-24 bg-white">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="text-center mb-16">
+                    <span class="text-accent font-bold tracking-widest uppercase text-xs mb-3 block">A evolução da tecnologia MD</span>
+                    <h2 class="text-3xl md:text-5xl font-bold font-heading text-slate-900 mb-6">Nossa História</h2>
+                    <p class="max-w-3xl mx-auto text-lg text-slate-600">Desde sua fundação, a Metalúrgica Daniela tem se dedicado ao desenvolvimento de tecnologias voltadas à construção de equipamentos de alta performance, garantindo qualidade e eficiência para seus clientes.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-12 gap-12">
+                    <!-- Timeline Content -->
+                    <div class="lg:col-span-7 relative">
+                        <div class="absolute left-8 top-4 bottom-4 w-0.5 bg-slate-200"></div>
+                        <div class="space-y-12">
+                            <div class="relative pl-24">
+                                <div class="absolute left-0 top-0 w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center font-bold shadow-lg border-4 border-white z-10">2006</div>
+                                <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                                    <p class="text-slate-700 leading-relaxed">Iniciou o desenvolvimento de tubos mecânicos sem costura, com o objetivo de atender às demandas dos setores de mineração e hidrogeneração, destacando-se pela precisão e resistência de seus materiais.</p>
+                                </div>
+                            </div>
+                            <div class="relative pl-24">
+                                <div class="absolute left-0 top-0 w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center font-bold shadow-lg border-4 border-white z-10">2010</div>
+                                <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                                    <p class="text-slate-700 leading-relaxed">A empresa expandiu sua atuação para a indústria naval, iniciando a fabricação dos Kort Nozzles K19, K37 e Rice Speed, além de hélices de aço inoxidável para embarcações de médio e grande porte. Esses propulsores possuem perfil hidrodinâmico conforme normas internacionais.</p>
+                                </div>
+                            </div>
+                            <div class="relative pl-24">
+                                <div class="absolute left-0 top-0 w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center font-bold shadow-lg border-4 border-white z-10">2012</div>
+                                <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                                    <p class="text-slate-700 leading-relaxed">Em parceria com sua equipe de engenharia, a Metalúrgica Daniela iniciou a fabricação de cranes, vigas de içamento e pontes rolantes, incluindo as chamadas vigas pescadoras, utilizadas no içamento de comportas em usinas hidrelétricas.</p>
+                                </div>
+                            </div>
+                            <div class="relative pl-24">
+                                <div class="absolute left-0 top-0 w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center font-bold shadow-lg border-4 border-white z-10">2014</div>
+                                <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                                    <p class="text-slate-700 leading-relaxed">A empresa deu um novo passo, iniciando a produção de equipamentos voltados aos setores de óleo e gás, com peças utilizadas na extração de petróleo no pré-sal, exportadas para países como Japão, Finlândia e Alemanha.</p>
+                                </div>
+                            </div>
+                            <div class="relative pl-24">
+                                <div class="absolute left-0 top-0 w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center font-bold shadow-lg border-4 border-white z-10">2018</div>
+                                <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                                    <p class="text-slate-700 leading-relaxed">Desenvolveu materiais especiais para empresas de perfuração de poços de petróleo, reforçando sua presença no mercado de energia.</p>
+                                </div>
+                            </div>
+                            <div class="relative pl-24">
+                                <div class="absolute left-0 top-0 w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center font-bold shadow-lg border-4 border-white z-10">2019</div>
+                                <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                                    <p class="text-slate-700 leading-relaxed">Graças ao vasto conhecimento em materiais e ao aprimoramento constante da equipe técnica, iniciou a fabricação de equipamentos e peças especiais para o setor de mineração, consolidando parcerias com grandes mineradoras.</p>
+                                </div>
+                            </div>
+                            <div class="relative pl-24">
+                                <div class="absolute left-0 top-0 w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center font-bold shadow-lg border-4 border-white z-10">2022</div>
+                                <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                                    <p class="text-slate-700 leading-relaxed">Colaborou com o desenvolvimento de grandes equipamentos para a maior empresa da América Latina fabricante de usinas de açúcar e álcool, reafirmando seu compromisso com a inovação.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- History Image (Sticky) -->
+                    <div class="lg:col-span-5">
+                        <div class="sticky top-24">
+                            <div class="relative">
+                                <div class="absolute top-0 right-0 -mr-4 -mt-4 w-24 h-24 bg-accent/20 rounded-full blur-xl"></div>
+                                <div class="absolute bottom-0 left-0 -ml-4 -mb-4 w-32 h-32 bg-primary/20 rounded-full blur-xl"></div>
+                                <img src="https://i.imgur.com/iZzmUYi.png" alt="Metalúrgica Daniela History" class="relative rounded-2xl shadow-2xl w-full h-auto border-4 border-white" referrerPolicy="no-referrer">
+                            </div>
+                            <div class="mt-8 bg-slate-900 text-white p-6 rounded-xl shadow-lg">
+                                <i data-lucide="history" class="w-8 h-8 text-accent mb-4"></i>
+                                <h4 class="text-xl font-bold mb-2">Legado de Excelência</h4>
+                                <p class="text-slate-300 text-sm">Mais de duas décadas transformando desafios industriais em soluções de engenharia de ponta.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Catalog Downloads Section -->
+        <section class="py-20 bg-accent relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+               <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-[100px] transform translate-x-1/2 -translate-y-1/2"></div>
+               <div class="absolute bottom-0 left-0 w-64 h-64 bg-primary rounded-full blur-[80px] transform -translate-x-1/2 translate-y-1/2"></div>
+            </div>
+
+            <div class="container mx-auto px-4 md:px-6 relative z-10">
+                <div class="text-center mb-16 max-w-3xl mx-auto">
+                    <span class="text-primary font-bold tracking-widest uppercase text-xs mb-3 block">Downloads</span>
+                    <h2 class="text-3xl md:text-4xl font-bold font-heading text-white mb-6">Catálogos Técnicos</h2>
+                    <p class="text-slate-300 text-lg">Baixe a documentação completa e especificações técnicas de nossas linhas de produtos.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+                    <!-- Catalog 1 -->
+                    <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/15 transition-all duration-300 group flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i data-lucide="briefcase" class="w-8 h-8 text-primary"></i>
+                        </div>
+                        <h3 class="text-white font-bold font-heading text-lg mb-2 min-h-[56px] flex items-center justify-center">Apresentação Institucional & Capacidade Técnica</h3>
+                        <div class="mt-auto pt-6 w-full">
+                            <a href="#" download class="flex items-center justify-center gap-2 w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-lg transition-colors shadow-lg shadow-black/20">
+                                <i data-lucide="download" class="w-4 h-4"></i> Baixar PDF
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Catalog 2 -->
+                    <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/15 transition-all duration-300 group flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i data-lucide="anchor" class="w-8 h-8 text-blue-400"></i>
+                        </div>
+                        <h3 class="text-white font-bold font-heading text-lg mb-2 min-h-[56px] flex items-center justify-center">Equipamentos de Convés, Atracação e Reboque</h3>
+                        <div class="mt-auto pt-6 w-full">
+                            <a href="#" download class="flex items-center justify-center gap-2 w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-lg transition-colors shadow-lg shadow-black/20">
+                                <i data-lucide="download" class="w-4 h-4"></i> Baixar PDF
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Catalog 3 -->
+                    <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/15 transition-all duration-300 group flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <i data-lucide="box" class="w-8 h-8 text-amber-500"></i>
+                        </div>
+                        <h3 class="text-white font-bold font-heading text-lg mb-2 min-h-[56px] flex items-center justify-center">Soluções de Armazenagem e Racks Industriais</h3>
+                        <div class="mt-auto pt-6 w-full">
+                            <a href="#" download class="flex items-center justify-center gap-2 w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-lg transition-colors shadow-lg shadow-black/20">
+                                <i data-lucide="download" class="w-4 h-4"></i> Baixar PDF
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Catalog 4 -->
+                    <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/15 transition-all duration-300 group flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <div class="w-8 h-8 text-cyan-400">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                            </div>
+                        </div>
+                        <h3 class="text-white font-bold font-heading text-lg mb-2 min-h-[56px] flex items-center justify-center">Estações de Tratamento de Água e Efluentes</h3>
+                        <div class="mt-auto pt-6 w-full">
+                            <a href="#" download class="flex items-center justify-center gap-2 w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-lg transition-colors shadow-lg shadow-black/20">
+                                <i data-lucide="download" class="w-4 h-4"></i> Baixar PDF
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Catalog 5 -->
+                    <div class="bg-white/10 backdrop-blur-sm border border-white/10 rounded-xl p-6 hover:bg-white/15 transition-all duration-300 group flex flex-col items-center text-center">
+                        <div class="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <div class="w-8 h-8 text-purple-400">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+                            </div>
+                        </div>
+                        <h3 class="text-white font-bold font-heading text-lg mb-2 min-h-[56px] flex items-center justify-center">Peneiras de Rolos para Pelotização</h3>
+                        <div class="mt-auto pt-6 w-full">
+                            <a href="#" download class="flex items-center justify-center gap-2 w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 rounded-lg transition-colors shadow-lg shadow-black/20">
+                                <i data-lucide="download" class="w-4 h-4"></i> Baixar PDF
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specialized Projects Section -->
+        <section class="py-24 bg-white relative overflow-hidden">
+            <div class="container mx-auto px-4 md:px-6 relative z-10">
+                <div class="mb-16 text-center max-w-3xl mx-auto">
+                    <span class="text-primary font-bold tracking-widest uppercase text-xs mb-3 block">Tecnologia Avançada</span>
+                    <h2 class="text-4xl md:text-6xl font-bold font-heading text-slate-900 leading-tight">Softwares & Cálculos</h2>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Project 1 -->
+                    <div class="group flex flex-col bg-slate-50 rounded-[2rem] border border-slate-100 shadow-lg hover:shadow-2xl hover:shadow-slate-200 transition-all duration-500 overflow-hidden relative">
+                        <div class="h-80 md:h-96 p-8 flex items-center justify-center bg-white relative">
+                            <img src="https://i.imgur.com/6mroVyI.png" alt="Mecânica" class="w-full h-full object-contain filter drop-shadow-xl transform group-hover:scale-110 transition-transform duration-700 ease-in-out" referrerPolicy="no-referrer">
+                        </div>
+                        <div class="p-8 flex-1 flex flex-col relative bg-slate-50 border-l-4 border-primary">
+                            <h3 class="text-2xl font-bold font-heading text-slate-900 mb-4 group-hover:text-primary transition-colors">Mecânica</h3>
+                            <p class="text-slate-600 leading-relaxed text-sm">Com nossos softwares especializados em hidrodinâmica, desenvolvemos projetos navais completos e precisos, que incluem cálculos de análise de embarcações, o desenvolvimento de planos de linhas, e a análise de velocidade e bollard pull, garantindo eficiência e segurança para seus projetos.</p>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="group flex flex-col bg-slate-50 rounded-[2rem] border border-slate-100 shadow-lg hover:shadow-2xl hover:shadow-slate-200 transition-all duration-500 overflow-hidden relative">
+                        <div class="h-80 md:h-96 p-8 flex items-center justify-center bg-white relative">
+                            <img src="https://i.imgur.com/5Lt2A5z.png" alt="Eixo de Propulsão" class="w-full h-full object-contain filter drop-shadow-xl transform group-hover:scale-110 transition-transform duration-700 ease-in-out" referrerPolicy="no-referrer">
+                        </div>
+                        <div class="p-8 flex-1 flex flex-col relative bg-slate-50 border-l-4 border-primary">
+                            <h3 class="text-2xl font-bold font-heading text-slate-900 mb-4 group-hover:text-primary transition-colors">Eixo de Propulsão</h3>
+                            <p class="text-slate-600 leading-relaxed text-sm">Usamos softwares de hidrodinâmica para otimizar o desempenho do eixo de propulsão. Com eles, realizamos análises detalhadas que incluem o cálculo de embarcações, planejamento de linhas de projeto, cálculo de velocidade e análise de bollard pull, garantindo a máxima eficiência.</p>
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="group flex flex-col bg-slate-50 rounded-[2rem] border border-slate-100 shadow-lg hover:shadow-2xl hover:shadow-slate-200 transition-all duration-500 overflow-hidden relative">
+                        <div class="h-80 md:h-96 p-8 flex items-center justify-center bg-white relative">
+                            <img src="https://i.imgur.com/e2DxpZR.png" alt="Kort Nozzle" class="w-full h-full object-contain filter drop-shadow-xl transform group-hover:scale-110 transition-transform duration-700 ease-in-out" referrerPolicy="no-referrer">
+                        </div>
+                        <div class="p-8 flex-1 flex flex-col relative bg-slate-50 border-l-4 border-slate-700">
+                            <h3 class="text-2xl font-bold font-heading text-slate-900 mb-4 group-hover:text-primary transition-colors">Kort Nozzle</h3>
+                            <p class="text-slate-600 leading-relaxed text-sm">Usamos softwares especializados em hidrodinâmica para analisar e otimizar o Kort Nozzle. Com essas ferramentas, realizamos cálculos precisos de embarcações, planejamento de linhas de projeto, cálculo de velocidade e análise de bollard pull, garantindo o melhor desempenho.</p>
+                        </div>
+                    </div>
+                    <!-- Project 4 -->
+                    <div class="group flex flex-col bg-slate-50 rounded-[2rem] border border-slate-100 shadow-lg hover:shadow-2xl hover:shadow-slate-200 transition-all duration-500 overflow-hidden relative">
+                        <div class="h-80 md:h-96 p-8 flex items-center justify-center bg-white relative">
+                            <img src="https://i.imgur.com/XokpqCF.png" alt="Hidrodinâmica de Pás" class="w-full h-full object-contain filter drop-shadow-xl transform group-hover:scale-110 transition-transform duration-700 ease-in-out" referrerPolicy="no-referrer">
+                        </div>
+                        <div class="p-8 flex-1 flex flex-col relative bg-slate-50 border-l-4 border-primary">
+                            <h3 class="text-2xl font-bold font-heading text-slate-900 mb-4 group-hover:text-primary transition-colors">Hidrodinâmica de Pás</h3>
+                            <p class="text-slate-600 leading-relaxed text-sm">As pás da hélice operam como asas de avião, gerando força ao seguir o Princípio de Bernoulli e a 3ª Lei de Newton. Esse processo cria uma diferença de pressão entre as superfícies das pás, que impulsiona o movimento.</p>
+                        </div>
+                    </div>
+                    <!-- Project 5 -->
+                    <div class="group flex flex-col bg-slate-50 rounded-[2rem] border border-slate-100 shadow-lg hover:shadow-2xl hover:shadow-slate-200 transition-all duration-500 overflow-hidden relative">
+                        <div class="h-80 md:h-96 p-8 flex items-center justify-center bg-white relative">
+                            <img src="https://i.imgur.com/5tgvitk.png" alt="Eixo de Propulsão" class="w-full h-full object-contain filter drop-shadow-xl transform group-hover:scale-110 transition-transform duration-700 ease-in-out" referrerPolicy="no-referrer">
+                        </div>
+                        <div class="p-8 flex-1 flex flex-col relative bg-slate-50 border-l-4 border-emerald-600">
+                            <h3 class="text-2xl font-bold font-heading text-slate-900 mb-4 group-hover:text-primary transition-colors">Eixo de Propulsão</h3>
+                            <p class="text-slate-600 leading-relaxed text-sm">O eixo da hélice do navio se conecta a grandes motores de propulsão, que podem funcionar com corrente contínua ou alternada. Em um sistema de propulsão elétrica, a direção da rotação da hélice é controlada de forma simples e eficiente, ajustando o próprio motor ou alterando a alimentação elétrica.</p>
+                        </div>
+                    </div>
+                    <!-- Project 6 -->
+                    <div class="group flex flex-col bg-slate-50 rounded-[2rem] border border-slate-100 shadow-lg hover:shadow-2xl hover:shadow-slate-200 transition-all duration-500 overflow-hidden relative">
+                        <div class="h-80 md:h-96 p-8 flex items-center justify-center bg-white relative">
+                            <img src="https://i.imgur.com/jylVu1I.png" alt="Kort Nozzle" class="w-full h-full object-contain filter drop-shadow-xl transform group-hover:scale-110 transition-transform duration-700 ease-in-out" referrerPolicy="no-referrer">
+                        </div>
+                        <div class="p-8 flex-1 flex flex-col relative bg-slate-50 border-l-4 border-amber-600">
+                            <h3 class="text-2xl font-bold font-heading text-slate-900 mb-4 group-hover:text-primary transition-colors">Kort Nozzle</h3>
+                            <p class="text-slate-600 leading-relaxed text-sm">O Kort Nozzle é uma espécie de anel aerodinâmico que envolve a hélice. Sua função principal é proteger a hélice e garantir que a embarcação continue operando sem problemas, pois é projetado para eliminar ou cortar qualquer tipo de obstrução que possa reduzir a velocidade do navio ou até mesmo pará-lo por completo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additional Info Section -->
+        <section class="py-24 bg-slate-50">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                    <p class="text-lg md:text-xl text-slate-700 leading-relaxed font-medium">
+                      Para otimizar a velocidade do bollard pull, essencial para rebocadores, a Metalúrgica Daniela (MD) projeta e constrói sistemas propulsivos (eixo de pá fixa ou passo variável) e acessórios para o sistema azimutal. Atendemos os maiores armadores e empresas de tecnologia do Brasil.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-primary text-white text-center">
+            <div class="container mx-auto px-4 md:px-6 max-w-4xl">
+                <h2 class="text-3xl md:text-5xl font-bold font-heading mb-6">Vamos Conversar Sobre a Sua Necessidade?</h2>
+                <p class="text-lg md:text-xl text-white/90 mb-10 leading-relaxed">Nossa equipe de especialistas está pronta para entender seu projeto e oferecer a solução em aço ideal para você. Clique nos botões abaixo e fale conosco diretamente pelo WhatsApp.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="https://wa.me/551146442969" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
+                        <i data-lucide="message-circle" class="w-6 h-6"></i>
+                        WhatsApp (11) 4644-2969
+                    </a>
+                    <a href="https://wa.me/551146442977" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
+                        <i data-lucide="message-circle" class="w-6 h-6"></i>
+                        WhatsApp (11) 4644-2977
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-16 border-t border-white/10">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="space-y-6">
+                    <img src="https://i.imgur.com/yxFATfL.png" alt="Aceros Logo" class="h-20 w-auto brightness-0 invert" referrerPolicy="no-referrer">
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Líder em soluções metalúrgicas de alta performance, atendendo aos setores mais exigentes com inovação e qualidade superior.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold font-heading mb-6">Links Rápidos</h3>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="sobre.html" class="hover:text-white transition-colors">Sobre Nós</a></li>
+                        <li><a href="atuacao.html" class="hover:text-white transition-colors">Mercado de Atuação</a></li>
+                        <li><a href="inovacao.html" class="hover:text-white transition-colors">Inovação</a></li>
+                        <li><a href="contato.html" class="hover:text-white transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold font-heading mb-6">Mercados</h3>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a href="atuacao-siderurgia.html" class="hover:text-white transition-colors">Siderurgia</a></li>
+                        <li><a href="atuacao-naval.html" class="hover:text-white transition-colors">Naval</a></li>
+                        <li><a href="atuacao-mineracao.html" class="hover:text-white transition-colors">Mineração</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Química & Petroquímica</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Mecânica Pesada</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold font-heading mb-6">Contato</h3>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-primary shrink-0"></i>
+                            <span>Rua Exemplo, 123 - Distrito Industrial<br>Itaquaquecetuba - SP</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-primary shrink-0 mt-1"></i>
+                            <div class="flex flex-col">
+                                <span>+55 (11) 4644-2969</span>
+                                <span>+55 (11) 4644-2977</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-primary shrink-0 mt-1"></i>
+                            <div class="flex flex-col">
+                                <span>vendas@metalurgicadaniela.com.br</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-16 pt-8 border-t border-white/5 text-center text-slate-500 text-xs">
+                <p>&copy; 2024 Metalúrgica Daniela. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <!-- Google Translate -->
+    <div id="google_translate_element" style="display:none;"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'pt', includedLanguages: 'pt,en,es,de,it,zh-CN,fr', autoDisplay: false}, 'google_translate_element');
+        }
+        function translatePage(lang) {
+            var selectField = document.querySelector("select.goog-te-combo");
+            if (selectField) {
+                selectField.value = lang;
+                selectField.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

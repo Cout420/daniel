@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siderurgia - Metalúrgica Daniela</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ff6600',
+                        secondary: '#1a1a1a',
+                        accent: '#003366',
+                        background: '#ffffff',
+                        foreground: '#1a1a1a',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body class="bg-background font-sans text-foreground flex flex-col min-h-screen" x-data="{ mobileMenuOpen: false }">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-40 w-full border-b bg-white/80 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto flex h-20 md:h-24 items-center justify-between px-4 md:px-8 relative">
+            <div class="relative z-50 shrink-0 flex items-center">
+                <a href="index.html" class="flex items-center group">
+                    <div class="relative flex items-center">
+                        <img src="https://i.imgur.com/yxFATfL.png" alt="Aceros Logo" class="h-28 md:h-40 w-auto object-contain absolute top-1/2 -translate-y-1/2 left-0 max-w-none transition-transform duration-300 group-hover:scale-105" style="margin-top: 8px;">
+                        <div class="w-36 md:w-56 h-20 md:h-24"></div>
+                    </div>
+                </a>
+            </div>
+
+            <nav class="hidden md:flex items-center justify-center flex-1 px-4">
+                <div class="flex items-center justify-center w-full gap-8 lg:gap-12 text-base font-medium text-gray-700">
+                    <a href="index.html" class="relative transition-colors hover:text-primary whitespace-nowrap py-2 group">Home<span class="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100 origin-left"></span></a>
+                    <a href="sobre.html" class="relative transition-colors hover:text-primary whitespace-nowrap py-2 group">Sobre Nós<span class="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100 origin-left"></span></a>
+                    <a href="atuacao.html" class="relative text-primary whitespace-nowrap py-2 group">Mercado de Atuação<span class="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-100 origin-left"></span></a>
+                    <a href="inovacao.html" class="relative transition-colors hover:text-primary whitespace-nowrap py-2 group">Inovação<span class="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100 origin-left"></span></a>
+                </div>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4 lg:gap-6 shrink-0">
+                <div class="flex items-center gap-2 text-sm font-bold text-slate-400">
+                    <button onclick="translatePage('pt')" class="hover:text-primary transition-colors cursor-pointer">PT</button>
+                    <span>|</span>
+                    <button onclick="translatePage('en')" class="hover:text-primary transition-colors cursor-pointer">EN</button>
+                    <span>|</span>
+                    <button onclick="translatePage('es')" class="hover:text-primary transition-colors cursor-pointer">ES</button>
+                    <span>|</span>
+                    <button onclick="translatePage('de')" class="hover:text-primary transition-colors cursor-pointer">DE</button>
+                    <span>|</span>
+                    <button onclick="translatePage('it')" class="hover:text-primary transition-colors cursor-pointer">IT</button>
+                    <span>|</span>
+                    <button onclick="translatePage('zh-CN')" class="hover:text-primary transition-colors cursor-pointer">ZH</button>
+                    <span>|</span>
+                    <button onclick="translatePage('fr')" class="hover:text-primary transition-colors cursor-pointer">FR</button>
+                </div>
+                <div class="h-8 w-px bg-gray-200 mx-2"></div>
+                <a href="contato.html" class="bg-primary text-white px-6 py-2 rounded-md shadow-md hover:shadow-lg transition-all font-medium">Contato</a>
+            </div>
+
+            <div class="flex md:hidden items-center gap-4">
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="p-2 text-gray-700 hover:bg-gray-100 rounded-md">
+                    <i data-lucide="menu" x-show="!mobileMenuOpen"></i>
+                    <i data-lucide="x" x-show="mobileMenuOpen"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenuOpen" x-cloak class="md:hidden border-t bg-white p-4 space-y-4 shadow-lg">
+            <nav class="flex flex-col gap-4">
+                <a href="index.html" class="text-sm font-medium text-gray-700 hover:text-primary">Home</a>
+                <a href="sobre.html" class="text-sm font-medium text-gray-700 hover:text-primary">Sobre Nós</a>
+                <a href="atuacao.html" class="text-sm font-medium text-primary">Mercado de Atuação</a>
+                <a href="inovacao.html" class="text-sm font-medium text-gray-700 hover:text-primary">Inovação</a>
+                <a href="contato.html" class="bg-primary text-white px-4 py-2 rounded-md text-center font-medium">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <div class="relative h-[40vh] md:h-[50vh] w-full bg-gray-900 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80" alt="Siderurgia" class="w-full h-full object-cover opacity-50">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+            <div class="absolute inset-0 flex items-center justify-center container mx-auto px-4">
+                <div class="text-center">
+                    <a href="atuacao.html" class="inline-flex items-center text-white/80 hover:text-white mb-6 text-sm font-medium transition-colors">
+                        <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i> Voltar para Mercados
+                    </a>
+                    <h1 class="text-4xl md:text-6xl font-bold font-heading text-white tracking-wider uppercase">Siderurgia</h1>
+                    <div class="w-24 h-1 bg-accent mx-auto mt-6 rounded-full"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Siderurgia Content -->
+        <section class="py-12 container mx-auto px-4 md:px-6">
+            <div class="text-center mb-20">
+                <div class="flex items-center justify-center gap-2 mb-4">
+                    <i data-lucide="factory" class="w-8 h-8 text-primary"></i>
+                    <span class="text-primary font-bold tracking-widest uppercase text-sm">Soluções Siderúrgicas</span>
+                </div>
+                <h2 class="text-4xl md:text-6xl font-bold font-heading text-slate-900 mb-6">Produtos e Tecnologias</h2>
+                <div class="w-32 h-2 bg-primary mx-auto rounded-full"></div>
+            </div>
+
+            <div class="space-y-24">
+                <!-- Section 1: LINHAS DE GALVANIZAÇÃO -->
+                <div class="flex flex-col lg:flex-row gap-12 items-center">
+                    <div class="w-full lg:w-1/2">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="rounded-2xl overflow-hidden shadow-lg aspect-square bg-slate-100">
+                                <img src="https://i.imgur.com/qdpfn4q.png" alt="Galvanização 1" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                            </div>
+                            <div class="rounded-2xl overflow-hidden shadow-lg aspect-square bg-slate-100">
+                                <img src="https://i.imgur.com/KZhCZ6S.png" alt="Galvanização 2" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                            </div>
+                            <div class="col-span-2 rounded-2xl overflow-hidden shadow-lg aspect-[2/1] bg-slate-100">
+                                <img src="https://i.imgur.com/DLNl2Zu.png" alt="Galvanização 3" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/2 space-y-6">
+                        <div class="flex items-center gap-4">
+                            <span class="text-6xl font-black text-slate-100 font-heading select-none">01</span>
+                            <div class="h-px flex-1 bg-slate-200"></div>
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-bold font-heading text-slate-900 leading-tight uppercase">LINHAS DE GALVANIZAÇÃO POR IMERSÃO A QUENTE (POTE)</h3>
+                        <p class="text-lg text-slate-600 leading-relaxed font-light">
+                            Componentes de alta performance submersos em banhos de Zinco, Zincalume e Alumínio+Si, e galvalume com ligas especiais que garantem durabilidade superior.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3 text-slate-700">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary shrink-0 mt-1"></i>
+                                <span>Rolos de Imersão, Estabilizadores, Braços, Berços e Bicos fundidos em peça única.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-700">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary shrink-0 mt-1"></i>
+                                <span>Ligas ACEROS TOTALMENTE LIVRES DE FERRITA para desempenho superior.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-700">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary shrink-0 mt-1"></i>
+                                <span>Mancais (Buchas) bi-metálicas com desempenho de 3 a 7 vezes maior.</span>
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/551146442969?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20LINHAS%20DE%20GALVANIZA%C3%87%C3%83O" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white px-6 py-3 rounded-full font-bold text-sm uppercase tracking-wider transition-all shadow-lg hover:shadow-green-500/30 hover:-translate-y-1">
+                            <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                            Solicite um Orçamento
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Section 2: ROLOS PARA TRANSPORTE DE TIRAS A QUENTE (HSP) -->
+                <div class="flex flex-col lg:flex-row-reverse gap-12 items-center">
+                    <div class="w-full lg:w-1/2">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="rounded-2xl overflow-hidden shadow-lg aspect-square bg-slate-100">
+                                <img src="https://i.imgur.com/zNJQB1c.png" alt="Rolo HSP 1" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                            </div>
+                            <div class="rounded-2xl overflow-hidden shadow-lg aspect-square bg-slate-100">
+                                <img src="https://i.imgur.com/q9bgdTE.png" alt="Rolo HSP 2" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/2 space-y-6">
+                        <div class="flex items-center gap-4">
+                            <span class="text-6xl font-black text-slate-100 font-heading select-none">02</span>
+                            <div class="h-px flex-1 bg-slate-200"></div>
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-bold font-heading text-slate-900 leading-tight uppercase">ROLOS PARA TRANSPORTE DE TIRAS A QUENTE (HSP)</h3>
+                        <p class="text-lg text-slate-600 leading-relaxed font-light">
+                            Nova geração de rolos para MESA DE TRANSFERÊNCIA, MESA DE SAÍDA, LOOPER, TENSION (tensão), PINCH (aperto) e WRAPPER (enrolador).
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3 text-slate-700">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary shrink-0 mt-1"></i>
+                                <span><strong>Processo Bi-metálico:</strong> Microestrutura de aço inoxidável martensítico e ferrítico com camada externa dura e interna com menor dureza e resistente.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-700">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary shrink-0 mt-1"></i>
+                                <span><strong>Garantia de Performance:</strong> Redução máxima de runout de 0,5 mm (mono-metálica) ou 0,3 mm (bi-metálica) por milhão de tonelada processada.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-700">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary shrink-0 mt-1"></i>
+                                <span><strong>Aplicações Críticas:</strong> Para rolos (pinch rollers), utilizamos uma mesa bi-metálica centrifugada para garantir o melhor desempenho.</span>
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/551146442969?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20ROLOS%20HSP" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white px-6 py-3 rounded-full font-bold text-sm uppercase tracking-wider transition-all shadow-lg hover:shadow-green-500/30 hover:-translate-y-1">
+                            <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                            Solicite um Orçamento
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Section 3: LINGOTAMENTO CONTÍNUO -->
+                <div class="flex flex-col lg:flex-row gap-12 items-center">
+                    <div class="w-full lg:w-1/2">
+                        <div class="rounded-2xl overflow-hidden shadow-lg aspect-[4/3] bg-slate-100">
+                            <img src="https://i.imgur.com/CuvRRvb.png" alt="Lingotamento Contínuo" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/2 space-y-6">
+                        <div class="flex items-center gap-4">
+                            <span class="text-6xl font-black text-slate-100 font-heading select-none">03</span>
+                            <div class="h-px flex-1 bg-slate-200"></div>
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-bold font-heading text-slate-900 leading-tight uppercase">LINGOTAMENTO CONTÍNUO</h3>
+                        <p class="text-lg text-slate-600 leading-relaxed font-light">
+                            Rolos para Máquinas de Lingotamento Contínuo: Rolos monometálicos e bi-metálicos e rolos padrão revestidos por soldagem (welded). Estes rolos de aço inoxidável martensíticos (42 a 48 HRC), através do controle de enxofre, carbono e fósforo, garantem a ausência de trincas térmicas quando em contato com as placas do lingotamento contínuo. Estes rolos estão em funcionamento nas máquinas de lingotamento brasileiras e no exterior e produzem cerca de 3,5 milhões de toneladas de placas sem qualquer necessidade de troca ou repasse (re-usinagem) dos rolos.
+                        </p>
+                        <a href="https://wa.me/551146442969?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20LINGOTAMENTO%20CONT%C3%8DNUO" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white px-6 py-3 rounded-full font-bold text-sm uppercase tracking-wider transition-all shadow-lg hover:shadow-green-500/30 hover:-translate-y-1">
+                            <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                            Solicite um Orçamento
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Section 4: ROLOS PARA FORNOS -->
+                <div class="flex flex-col lg:flex-row-reverse gap-12 items-center">
+                    <div class="w-full lg:w-1/2">
+                        <div class="rounded-2xl overflow-hidden shadow-lg aspect-[4/3] bg-slate-100">
+                            <img src="https://i.imgur.com/8xF58F6.jpeg" alt="Rolos para Fornos" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/2 space-y-6">
+                        <div class="flex items-center gap-4">
+                            <span class="text-6xl font-black text-slate-100 font-heading select-none">04</span>
+                            <div class="h-px flex-1 bg-slate-200"></div>
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-bold font-heading text-slate-900 leading-tight uppercase">ROLOS PARA FORNOS</h3>
+                        <p class="text-lg text-slate-600 leading-relaxed font-light">
+                            Rolos resfriados (cooled) e não resfriados (uncooled). Até o momento, mais de 800 rolos foram fornecidos a Clientes de alto potencial. Podemos fornecer tanto projetos próprios quanto projetos conforme o Cliente.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="bg-slate-50 p-4 rounded-xl border-l-4 border-primary">
+                                <h4 class="font-bold text-slate-900 mb-2">Soluções Especiais e Rolo Refrigerado</h4>
+                                <p class="text-sm text-slate-600">Foram desenvolvidas soluções especiais para lidar com problemas de aderência de carepa (scale pick-up). O rolo molhado (wet roll) é equipado com anéis (rodas/tyrerings) fabricados por processo centrífugo (anéis tri-metálicos) ou por fundição estática. O isolamento térmico aprimorado permite bom desempenho e perdas de calor limitadas. Os rolos resfriados garantem o trabalho por um período não inferior a 18 meses de serviço contínuo até uma temperatura de 1.300°C limite.</p>
+                            </div>
+                            <div class="bg-slate-50 p-4 rounded-xl border-l-4 border-accent">
+                                <h4 class="font-bold text-slate-900 mb-2">Rolo Seco</h4>
+                                <p class="text-sm text-slate-600">O rolo seco é fundido usando uma superliga que minimiza a aderência de carepa (scale pick-up) e suporta temperaturas mais elevadas.</p>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/551146442969?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20ROLOS%20PARA%20FORNOS" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white px-6 py-3 rounded-full font-bold text-sm uppercase tracking-wider transition-all shadow-lg hover:shadow-green-500/30 hover:-translate-y-1">
+                            <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                            Solicite um Orçamento
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Section 5: CAPL & CGL - Fornos -->
+                <div class="flex flex-col lg:flex-row gap-12 items-center">
+                    <div class="w-full lg:w-1/2">
+                        <div class="rounded-2xl overflow-hidden shadow-lg aspect-[4/3] bg-slate-100">
+                            <img src="https://i.imgur.com/iYTJsbZ.png" alt="CAPL & CGL - Fornos" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/2 space-y-6">
+                        <div class="flex items-center gap-4">
+                            <span class="text-6xl font-black text-slate-100 font-heading select-none">05</span>
+                            <div class="h-px flex-1 bg-slate-200"></div>
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-bold font-heading text-slate-900 leading-tight uppercase">ROLOS DO FORNO PARA TRANSPORTE DE BARRAS</h3>
+                        <p class="text-lg text-slate-600 leading-relaxed font-light">
+                            Soluções completas para Linhas de Recozimento e Processamento Contínuo e Linhas de Galvanização Contínua.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3 text-slate-700">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary shrink-0 mt-1"></i>
+                                <span>Tubos radiantes (tipos 'W', 'U', 'P' simples e duplo) com recuperadores de calor.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-700">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary shrink-0 mt-1"></i>
+                                <span>Rolos de forno revestidos (coated) e não revestidos (uncoated).</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-700">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary shrink-0 mt-1"></i>
+                                <span>Tecnologia HVOF ou SUPER D-GUN para rolos revestidos.</span>
+                            </li>
+                            <li class="flex items-start gap-3 text-slate-700">
+                                <i data-lucide="check-circle-2" class="w-5 h-5 text-primary shrink-0 mt-1"></i>
+                                <span>Rolos Brush (escova).</span>
+                            </li>
+                        </ul>
+                        <a href="https://wa.me/551146442969?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20ROLOS%20DE%20FORNO" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white px-6 py-3 rounded-full font-bold text-sm uppercase tracking-wider transition-all shadow-lg hover:shadow-green-500/30 hover:-translate-y-1">
+                            <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                            Solicite um Orçamento
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Catalog Section (Same as Home) -->
+        <section class="py-24 bg-slate-900 text-white relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-1/2 h-full bg-primary/10 blur-3xl rounded-full translate-x-1/2"></div>
+            <div class="absolute bottom-0 left-0 w-1/2 h-full bg-accent/5 blur-3xl rounded-full -translate-x-1/2"></div>
+            
+            <div class="container mx-auto px-4 md:px-8 relative z-10">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <div class="w-full lg:w-1/2 space-y-8">
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-primary font-bold text-sm uppercase tracking-widest">
+                            <i data-lucide="book-open" class="w-4 h-4"></i>
+                            Conhecimento Técnico
+                        </div>
+                        <h2 class="text-4xl md:text-6xl font-bold font-heading leading-tight">Catálogo Técnico Siderurgia</h2>
+                        <p class="text-xl text-slate-400 leading-relaxed">
+                            Acesse as especificações detalhadas de nossas soluções para o setor siderúrgico. Nossa documentação técnica fornece todos os dados necessários para sua engenharia.
+                        </p>
+                        <div class="flex flex-wrap gap-6">
+                            <a href="#" class="inline-flex items-center gap-3 bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg shadow-primary/20 hover:-translate-y-1">
+                                <i data-lucide="download" class="w-5 h-5"></i>
+                                Baixar Catálogo PDF
+                            </a>
+                            <a href="contato.html" class="inline-flex items-center gap-3 bg-white/5 hover:bg-white/10 text-white px-8 py-4 rounded-full font-bold text-lg transition-all border border-white/10 hover:-translate-y-1">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
+                                Solicitar via E-mail
+                            </a>
+                        </div>
+                    </div>
+                    <div class="w-full lg:w-1/2 relative">
+                        <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-slate-800 aspect-[3/4] md:aspect-video lg:aspect-[3/4]">
+                            <img src="https://i.imgur.com/8xF58F6.jpeg" alt="Catálogo Técnico" class="w-full h-full object-cover opacity-60">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="w-24 h-24 rounded-full bg-primary flex items-center justify-center animate-pulse">
+                                    <i data-lucide="file-text" class="w-12 h-12 text-white"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="absolute -top-8 -left-8 w-32 h-32 bg-accent/20 rounded-full blur-2xl"></div>
+                        <div class="absolute -bottom-8 -right-8 w-48 h-48 bg-primary/20 rounded-full blur-3xl"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom CTA -->
+        <div class="container mx-auto px-4 md:px-6 max-w-5xl py-12">
+            <div class="flex justify-between items-center">
+                <a href="atuacao.html" class="text-slate-500 hover:text-primary font-medium flex items-center gap-2">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i> Outros Mercados
+                </a>
+                <a href="contato.html" class="bg-primary text-white px-6 py-3 rounded-full font-bold hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20">
+                    Solicitar Orçamento
+                </a>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-primary text-white text-center">
+            <div class="container mx-auto px-4 md:px-6 max-w-4xl">
+                <h2 class="text-3xl md:text-5xl font-bold font-heading mb-6">Vamos Conversar Sobre a Sua Necessidade?</h2>
+                <p class="text-lg md:text-xl text-white/90 mb-10 leading-relaxed">Nossa equipe de especialistas está pronta para entender seu projeto e oferecer a solução em aço ideal para você. Clique nos botões abaixo e fale conosco diretamente pelo WhatsApp.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="https://wa.me/551146442969" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
+                        <i data-lucide="message-circle" class="w-6 h-6"></i>
+                        WhatsApp (11) 4644-2969
+                    </a>
+                    <a href="https://wa.me/551146442977" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
+                        <i data-lucide="message-circle" class="w-6 h-6"></i>
+                        WhatsApp (11) 4644-2977
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-16 border-t border-white/10">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="space-y-6">
+                    <img src="https://i.imgur.com/yxFATfL.png" alt="Aceros Logo" class="h-20 w-auto brightness-0 invert">
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Líder em soluções metalúrgicas de alta performance, atendendo aos setores mais exigentes com inovação e qualidade superior.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold font-heading mb-6">Links Rápidos</h3>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="sobre.html" class="hover:text-white transition-colors">Sobre Nós</a></li>
+                        <li><a href="atuacao.html" class="hover:text-white transition-colors">Mercado de Atuação</a></li>
+                        <li><a href="inovacao.html" class="hover:text-white transition-colors">Inovação</a></li>
+                        <li><a href="contato.html" class="hover:text-white transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold font-heading mb-6">Mercados</h3>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a href="atuacao-siderurgia.html" class="hover:text-white transition-colors">Siderurgia</a></li>
+                        <li><a href="atuacao-naval.html" class="hover:text-white transition-colors">Naval</a></li>
+                        <li><a href="atuacao-mineracao.html" class="hover:text-white transition-colors">Mineração</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Química & Petroquímica</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Mecânica Pesada</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold font-heading mb-6">Contato</h3>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-primary shrink-0"></i>
+                            <span>Rua Exemplo, 123 - Distrito Industrial<br>Itaquaquecetuba - SP</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-primary shrink-0 mt-1"></i>
+                            <div class="flex flex-col">
+                                <span>+55 (11) 4644-2969</span>
+                                <span>+55 (11) 4644-2977</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-primary shrink-0 mt-1"></i>
+                            <div class="flex flex-col">
+                                <span>vendas@metalurgicadaniela.com.br</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-16 pt-8 border-t border-white/5 text-center text-slate-500 text-xs">
+                <p>&copy; 2024 Metalúrgica Daniela. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <!-- Google Translate -->
+    <div id="google_translate_element" style="display:none;"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'pt', includedLanguages: 'pt,en,es,de,it,zh-CN,fr', autoDisplay: false}, 'google_translate_element');
+        }
+        function translatePage(lang) {
+            var selectField = document.querySelector("select.goog-te-combo");
+            if (selectField) {
+                selectField.value = lang;
+                selectField.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

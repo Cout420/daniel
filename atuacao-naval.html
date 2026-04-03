@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soluções para Área Naval - Metalúrgica Daniela</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ff6600',
+                        secondary: '#1a1a1a',
+                        accent: '#003366',
+                        background: '#ffffff',
+                        foreground: '#1a1a1a',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body class="bg-background font-sans text-foreground flex flex-col min-h-screen" x-data="{ mobileMenuOpen: false, selectedImage: null }">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-40 w-full border-b bg-white/80 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto flex h-20 md:h-24 items-center justify-between px-4 md:px-8 relative">
+            <div class="relative z-50 shrink-0 flex items-center">
+                <a href="index.html" class="flex items-center group">
+                    <div class="relative flex items-center">
+                        <img src="https://i.imgur.com/yxFATfL.png" alt="Aceros Logo" class="h-28 md:h-40 w-auto object-contain absolute top-1/2 -translate-y-1/2 left-0 max-w-none transition-transform duration-300 group-hover:scale-105" style="margin-top: 8px;">
+                        <div class="w-36 md:w-56 h-20 md:h-24"></div>
+                    </div>
+                </a>
+            </div>
+
+            <nav class="hidden md:flex items-center justify-center flex-1 px-4">
+                <div class="flex items-center justify-center w-full gap-8 lg:gap-12 text-base font-medium text-gray-700">
+                    <a href="index.html" class="relative transition-colors hover:text-primary whitespace-nowrap py-2 group">Home<span class="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100 origin-left"></span></a>
+                    <a href="sobre.html" class="relative transition-colors hover:text-primary whitespace-nowrap py-2 group">Sobre Nós<span class="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100 origin-left"></span></a>
+                    <a href="atuacao.html" class="relative text-primary whitespace-nowrap py-2 group">Mercado de Atuação<span class="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-100 origin-left"></span></a>
+                    <a href="inovacao.html" class="relative transition-colors hover:text-primary whitespace-nowrap py-2 group">Inovação<span class="absolute inset-x-0 bottom-0 h-0.5 bg-primary transform scale-x-0 transition-transform group-hover:scale-x-100 origin-left"></span></a>
+                </div>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4 lg:gap-6 shrink-0">
+                <div class="flex items-center gap-2 text-sm font-bold text-slate-400">
+                    <button onclick="translatePage('pt')" class="hover:text-primary transition-colors cursor-pointer">PT</button>
+                    <span>|</span>
+                    <button onclick="translatePage('en')" class="hover:text-primary transition-colors cursor-pointer">EN</button>
+                    <span>|</span>
+                    <button onclick="translatePage('es')" class="hover:text-primary transition-colors cursor-pointer">ES</button>
+                    <span>|</span>
+                    <button onclick="translatePage('de')" class="hover:text-primary transition-colors cursor-pointer">DE</button>
+                    <span>|</span>
+                    <button onclick="translatePage('it')" class="hover:text-primary transition-colors cursor-pointer">IT</button>
+                    <span>|</span>
+                    <button onclick="translatePage('zh-CN')" class="hover:text-primary transition-colors cursor-pointer">ZH</button>
+                    <span>|</span>
+                    <button onclick="translatePage('fr')" class="hover:text-primary transition-colors cursor-pointer">FR</button>
+                </div>
+                <div class="h-8 w-px bg-gray-200 mx-2"></div>
+                <a href="contato.html" class="bg-primary text-white px-6 py-2 rounded-md shadow-md hover:shadow-lg transition-all font-medium">Contato</a>
+            </div>
+
+            <div class="flex md:hidden items-center gap-4">
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="p-2 text-gray-700 hover:bg-gray-100 rounded-md">
+                    <i data-lucide="menu" x-show="!mobileMenuOpen"></i>
+                    <i data-lucide="x" x-show="mobileMenuOpen"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="mobileMenuOpen" x-cloak class="md:hidden border-t bg-white p-4 space-y-4 shadow-lg">
+            <nav class="flex flex-col gap-4">
+                <a href="index.html" class="text-sm font-medium text-gray-700 hover:text-primary">Home</a>
+                <a href="sobre.html" class="text-sm font-medium text-gray-700 hover:text-primary">Sobre Nós</a>
+                <a href="atuacao.html" class="text-sm font-medium text-primary">Mercado de Atuação</a>
+                <a href="inovacao.html" class="text-sm font-medium text-gray-700 hover:text-primary">Inovação</a>
+                <a href="contato.html" class="bg-primary text-white px-4 py-2 rounded-md text-center font-medium">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <div class="relative h-[40vh] md:h-[50vh] w-full bg-gray-900 overflow-hidden">
+            <img src="https://i.imgur.com/5AsJUxh.png" alt="Soluções para Área Naval" class="w-full h-full object-cover opacity-50">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+            <div class="absolute inset-0 flex items-center justify-center container mx-auto px-4">
+                <div class="text-center">
+                    <a href="atuacao.html" class="inline-flex items-center text-white/80 hover:text-white mb-6 text-sm font-medium transition-colors">
+                        <i data-lucide="arrow-left" class="w-4 h-4 mr-2"></i> Voltar para Mercados
+                    </a>
+                    <h1 class="text-4xl md:text-6xl font-bold font-heading text-white tracking-wider">Soluções para Área Naval</h1>
+                    <div class="w-24 h-1 bg-accent mx-auto mt-6 rounded-full"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Catalog -->
+        <section class="w-full bg-slate-50 py-24 border-y border-slate-200">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-bold font-heading text-slate-900 mb-6 uppercase leading-tight">
+                        EQUIPAMENTOS DE CONVÉS, ATRACAÇÃO, REBOQUE E FUNDEIO
+                    </h2>
+                    <div class="w-24 h-2 bg-accent mx-auto rounded-full mb-8"></div>
+                    <p class="text-xl text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
+                        Explore nossa linha completa. Clique nas imagens para ampliar e ver detalhes técnicos.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 md:gap-8">
+                    <!-- Product Images -->
+                    <template x-for="(src, idx) in [
+                        'https://i.imgur.com/K4AOAqT.png', 'https://i.imgur.com/g30ZZD7.png', 'https://i.imgur.com/dhaq41f.png',
+                        'https://i.imgur.com/ucQWgAD.png', 'https://i.imgur.com/1hQVsFR.png', 'https://i.imgur.com/bPaH8gW.png',
+                        'https://i.imgur.com/q2tLnlY.png', 'https://i.imgur.com/BAovbvy.png', 'https://i.imgur.com/oZPZzBG.png',
+                        'https://i.imgur.com/mjt4zjj.png', 'https://i.imgur.com/fdALLpI.png', 'https://i.imgur.com/6mroVyI.png',
+                        'https://i.imgur.com/xlGJ17Z.png', 'https://i.imgur.com/ygnSTSo.png', 'https://i.imgur.com/IAu5VbA.png',
+                        'https://i.imgur.com/hEohJuh.png', 'https://i.imgur.com/yfLLpTM.png', 'https://i.imgur.com/bOwW15H.png'
+                    ]" :key="idx">
+                        <div @click="selectedImage = src" class="group relative aspect-square bg-white rounded-xl shadow-sm hover:shadow-xl border border-slate-200 overflow-hidden cursor-zoom-in transition-all duration-300 hover:-translate-y-1">
+                            <div class="absolute inset-0 bg-white flex items-center justify-center p-2">
+                                <img :src="src" class="w-full h-full object-contain filter group-hover:contrast-105 transition-all duration-300">
+                            </div>
+                            <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 flex items-center justify-center">
+                                <div class="bg-white/90 p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transform scale-75 group-hover:scale-100 transition-all duration-300">
+                                    <i data-lucide="zoom-in" class="w-6 h-6 text-primary"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox Modal -->
+        <div x-show="selectedImage" x-cloak class="fixed inset-0 z-[60] bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 md:p-8 cursor-zoom-out" @click="selectedImage = null">
+            <button class="absolute top-6 right-6 text-white/70 hover:text-white transition-colors bg-white/10 p-2 rounded-full hover:bg-white/20">
+                <i data-lucide="x" class="w-8 h-8"></i>
+            </button>
+            <div class="relative max-w-full max-h-full" @click.stop>
+                <img :src="selectedImage" class="max-w-full max-h-[90vh] object-contain rounded-md shadow-2xl bg-white">
+            </div>
+        </div>
+
+        <!-- Downloads Section -->
+        <section class="py-24 bg-white border-t border-slate-200">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="max-w-4xl mx-auto bg-slate-900 rounded-3xl p-8 md:p-12 text-white shadow-2xl relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-primary/20 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
+                    <div class="relative z-10 flex flex-col md:flex-row items-center gap-8">
+                        <div class="flex-1 text-center md:text-left">
+                            <h2 class="text-3xl font-bold font-heading mb-4">Catálogo Técnico</h2>
+                            <p class="text-slate-400 mb-8">Acesse as especificações completas de nossos produtos navais.</p>
+                            <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                                <a href="#" class="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full font-bold transition-all">
+                                    <i data-lucide="download" class="w-5 h-5"></i> Download PDF
+                                </a>
+                            </div>
+                        </div>
+                        <div class="w-32 h-32 md:w-48 md:h-48 bg-white/10 rounded-2xl flex items-center justify-center rotate-3">
+                            <i data-lucide="file-text" class="w-16 h-16 md:w-24 md:h-24 text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Naval Propellers Section -->
+        <section class="py-24 bg-white relative border-t border-slate-200">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="text-center mb-16">
+                    <div class="flex items-center justify-center gap-2 mb-4">
+                        <i data-lucide="settings" class="w-6 h-6 text-primary"></i>
+                        <span class="text-primary font-bold tracking-widest uppercase text-sm">Propulsão Naval</span>
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-bold font-heading text-slate-900 mb-6">Propulsores e Hélices Navais</h2>
+                    <p class="text-xl text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
+                        Desenvolvemos Hélices e componentes para a indústria Naval a fim de garantir melhor qualidade na propulsão.
+                    </p>
+                </div>
+
+                <div class="grid lg:grid-cols-12 gap-8 items-start">
+                    <div class="lg:col-span-5 relative">
+                        <div class="rounded-3xl overflow-hidden shadow-2xl border border-slate-100 bg-black aspect-[9/16] w-full max-w-md mx-auto relative">
+                            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/59JpSaISmgk?autoplay=1&mute=1&loop=1&playlist=59JpSaISmgk&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3" title="Propulsores e Hélices Navais" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen class="w-full h-full object-cover scale-[1.02]"></iframe>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <template x-for="(img, idx) in [
+                            'https://i.imgur.com/vVV7vuD.jpeg', 'https://i.imgur.com/XMcA87w.jpeg', 'https://i.imgur.com/VUyry66.jpeg',
+                            'https://i.imgur.com/APcQ5p7.jpeg', 'https://i.imgur.com/cvPhK1z.jpeg', 'https://i.imgur.com/9a4X5h5.jpeg'
+                        ]" :key="idx">
+                            <div class="rounded-xl overflow-hidden shadow-md aspect-square bg-slate-100 group relative">
+                                <img :src="img" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Naval Horns Section -->
+        <section class="py-24 bg-slate-50 relative border-t border-slate-200">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="text-center mb-16">
+                    <div class="flex items-center justify-center gap-2 mb-4">
+                        <i data-lucide="ship" class="w-6 h-6 text-primary"></i>
+                        <span class="text-primary font-bold tracking-widest uppercase text-sm">Amarração e Ancoragem</span>
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-bold font-heading text-slate-900 mb-6">Buzinas e Sistemas de Reboque</h2>
+                    <p class="text-xl text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
+                        Equipamentos de guia de cabos de alta resistência, projetados para suportar cargas extremas e reduzir o desgaste dos cabos de amarração.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-8">
+                    <template x-for="item in [
+                        { title: 'Buzina Panamá (Borda Falsa)', img: 'https://i.imgur.com/7BfvtNs.jpeg' },
+                        { title: 'Buzina Panamá (Convés)', img: 'https://i.imgur.com/4aQXjyM.jpeg' },
+                        { title: 'Buzina de Reboque Triangular', img: 'https://i.imgur.com/qSzYmPo.png' },
+                        { title: 'Buzina de Reboque Adicional', img: 'https://i.imgur.com/WLfPKZ1.jpeg' },
+                        { title: 'Sistema de Reboque Naval', img: 'https://i.imgur.com/t2wj814.jpeg' }
+                    ]">
+                        <div class="bg-white rounded-2xl shadow-sm hover:shadow-xl border border-slate-200 overflow-hidden group transition-all duration-300 hover:-translate-y-2">
+                            <div class="aspect-[4/3] overflow-hidden bg-slate-100 p-4 flex items-center justify-center">
+                                <img :src="item.img" :alt="item.title" class="w-full h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500">
+                            </div>
+                            <div class="p-6 text-center">
+                                <h3 class="text-lg font-bold font-heading text-slate-900 group-hover:text-primary transition-colors" x-text="item.title"></h3>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </section>
+
+        <!-- Naval Anchors Section -->
+        <section class="py-24 bg-slate-50 relative border-t border-slate-200">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="text-center mb-16">
+                    <div class="flex items-center justify-center gap-2 mb-4">
+                        <i data-lucide="anchor" class="w-6 h-6 text-primary"></i>
+                        <span class="text-primary font-bold tracking-widest uppercase text-sm">Ancoragem e Fundeio</span>
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-bold font-heading text-slate-900 mb-6">Sistema de Ancoras</h2>
+                    <p class="text-xl text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
+                        Utilizando engenharia de ponta, validamos cada componente através de simulações e análises técnicas detalhadas para garantir performance e segurança.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <template x-for="img in [
+                        'https://i.imgur.com/2drTHTP.jpeg', 'https://i.imgur.com/wccI0SW.jpeg', 'https://i.imgur.com/EYu9l98.jpeg'
+                    ]">
+                        <div class="rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-white group">
+                            <div class="aspect-[4/3] overflow-hidden">
+                                <img :src="img" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kort Nozzle Manufacturing Section -->
+        <section class="py-24 bg-white border-t border-slate-200">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="text-center mb-16">
+                    <div class="flex items-center justify-center gap-2 mb-4">
+                        <i data-lucide="settings" class="w-6 h-6 text-accent"></i>
+                        <span class="text-accent font-bold tracking-widest uppercase text-sm">Processo Produtivo</span>
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-bold font-heading text-slate-900 mb-6">Fabricação do Kort Nozzle</h2>
+                    <p class="text-xl text-slate-600 max-w-3xl mx-auto font-light leading-relaxed">
+                        Acompanhe visualmente todas as etapas do desenvolvimento do Kort Nozzle, desde a construção inicial até a aplicação final em sistemas navais de alta performance.
+                    </p>
+                </div>
+
+                <div class="space-y-20 relative">
+                    <div class="hidden lg:block absolute left-8 top-8 bottom-8 w-0.5 bg-slate-200 -z-10"></div>
+                    
+                    <!-- Step 1 -->
+                    <div class="relative lg:pl-24">
+                        <div class="flex items-center gap-6 mb-8">
+                            <div class="absolute left-0 lg:left-0 top-0 lg:top-0 w-16 h-16 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-xl shadow-lg border-4 border-white z-10 hidden lg:flex">1</div>
+                            <div class="w-10 h-10 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-lg shadow-lg lg:hidden flex-shrink-0">1</div>
+                            <h3 class="text-2xl md:text-3xl font-bold font-heading text-slate-800">Etapa 1: <span class="text-primary">Construção Inicial</span></h3>
+                        </div>
+                        <div class="grid gap-6 md:grid-cols-2">
+                            <div class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-[300px] md:h-[450px] bg-slate-100 border border-slate-200 group">
+                                <img src="https://i.imgur.com/6S6X9vY.jpeg" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            </div>
+                            <div class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-[300px] md:h-[450px] bg-slate-100 border border-slate-200 group">
+                                <img src="https://i.imgur.com/q2tLnlY.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative lg:pl-24">
+                        <div class="flex items-center gap-6 mb-8">
+                            <div class="absolute left-0 lg:left-0 top-0 lg:top-0 w-16 h-16 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-xl shadow-lg border-4 border-white z-10 hidden lg:flex">2</div>
+                            <div class="w-10 h-10 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-lg shadow-lg lg:hidden flex-shrink-0">2</div>
+                            <h3 class="text-2xl md:text-3xl font-bold font-heading text-slate-800">Etapa 2: <span class="text-primary">Estruturação e Reforço</span></h3>
+                        </div>
+                        <div class="grid gap-6 md:grid-cols-2">
+                            <div class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-[300px] md:h-[450px] bg-slate-100 border border-slate-200 group">
+                                <img src="https://i.imgur.com/BAovbvy.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            </div>
+                            <div class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-[300px] md:h-[450px] bg-slate-100 border border-slate-200 group">
+                                <img src="https://i.imgur.com/oZPZzBG.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative lg:pl-24">
+                        <div class="flex items-center gap-6 mb-8">
+                            <div class="absolute left-0 lg:left-0 top-0 lg:top-0 w-16 h-16 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-xl shadow-lg border-4 border-white z-10 hidden lg:flex">3</div>
+                            <div class="w-10 h-10 rounded-full bg-slate-900 text-white flex items-center justify-center font-bold text-lg shadow-lg lg:hidden flex-shrink-0">3</div>
+                            <h3 class="text-2xl md:text-3xl font-bold font-heading text-slate-800">Etapa 3: <span class="text-primary">Finalização e Aplicação</span></h3>
+                        </div>
+                        <div class="grid gap-6 md:grid-cols-2">
+                            <div class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-[300px] md:h-[450px] bg-slate-100 border border-slate-200 group">
+                                <img src="https://i.imgur.com/mjt4zjj.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            </div>
+                            <div class="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-[300px] md:h-[450px] bg-slate-100 border border-slate-200 group">
+                                <img src="https://i.imgur.com/fdALLpI.png" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Naval Process Diagram Image -->
+        <section class="w-full bg-white pb-12">
+            <div class="container mx-auto px-4 md:px-6">
+                <img src="https://i.imgur.com/eLO0hTB.png" alt="Esquema Técnico Naval" class="w-full h-auto rounded-xl shadow-lg border border-slate-200">
+            </div>
+        </section>
+
+        <!-- WhatsApp CTA -->
+        <section class="py-12 bg-slate-50">
+            <div class="container mx-auto px-4 text-center">
+                <a href="https://wa.me/551146442969?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20para%20solu%C3%A7%C3%B5es%20navais." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg hover:shadow-green-500/30 hover:-translate-y-1">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                    </svg>
+                    Solicite seu Orçamento Agora
+                </a>
+            </div>
+        </section>
+
+        <!-- Specialized Projects Section -->
+        <section class="py-24 bg-white relative border-t border-slate-200">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 md:order-1">
+                        <div class="rounded-2xl overflow-hidden shadow-2xl border border-slate-100">
+                            <img src="https://i.imgur.com/6mroVyI.png" alt="Projetos Especializados" class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <div class="flex items-center gap-2 mb-4">
+                            <i data-lucide="cog" class="w-6 h-6 text-primary"></i>
+                            <span class="text-primary font-bold tracking-widest uppercase text-sm">Engenharia Naval</span>
+                        </div>
+                        <h2 class="text-3xl md:text-5xl font-bold font-heading text-slate-900 mb-6">Projetos Especializados</h2>
+                        <p class="text-xl text-slate-600 font-light leading-relaxed">
+                            Desenvolvemos soluções customizadas para as necessidades mais complexas da indústria naval, desde o projeto inicial até a fabricação final.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Propulsion Assembly Section -->
+        <section class="py-24 bg-slate-50 relative border-t border-slate-200">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <i data-lucide="wrench" class="w-6 h-6 text-primary"></i>
+                            <span class="text-primary font-bold tracking-widest uppercase text-sm">Montagem</span>
+                        </div>
+                        <h2 class="text-3xl md:text-5xl font-bold font-heading text-slate-900 mb-6">Montagem de Sistemas de Propulsão</h2>
+                        <p class="text-xl text-slate-600 font-light leading-relaxed">
+                            Nossa equipe técnica realiza a montagem completa de sistemas de propulsão, garantindo o alinhamento perfeito e a máxima eficiência operacional.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-white">
+                            <img src="https://i.imgur.com/xlGJ17Z.png" alt="Montagem de Propulsão" class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Propulsion Shaft Section -->
+        <section class="py-24 bg-white relative border-t border-slate-200">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 md:order-1">
+                        <div class="rounded-2xl overflow-hidden shadow-2xl border border-slate-100">
+                            <img src="https://i.imgur.com/ygnSTSo.png" alt="Eixo de Propulsão" class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <div class="flex items-center gap-2 mb-4">
+                            <i data-lucide="settings" class="w-6 h-6 text-primary"></i>
+                            <span class="text-primary font-bold tracking-widest uppercase text-sm">Componentes</span>
+                        </div>
+                        <h2 class="text-3xl md:text-5xl font-bold font-heading text-slate-900 mb-6">Eixos de Propulsão</h2>
+                        <p class="text-xl text-slate-600 font-light leading-relaxed">
+                            Fabricamos eixos de propulsão de alta precisão, utilizando materiais de alta resistência para suportar as condições mais severas de operação.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Installed Propulsion Section -->
+        <section class="py-24 bg-slate-50 relative border-t border-slate-200">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <i data-lucide="check-circle" class="w-6 h-6 text-primary"></i>
+                            <span class="text-primary font-bold tracking-widest uppercase text-sm">Instalação</span>
+                        </div>
+                        <h2 class="text-3xl md:text-5xl font-bold font-heading text-slate-900 mb-6">Sistemas Instalados</h2>
+                        <p class="text-xl text-slate-600 font-light leading-relaxed">
+                            Exemplos de nossos sistemas de propulsão instalados e operando com máxima performance em diversas embarcações.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-white">
+                            <img src="https://i.imgur.com/IAu5VbA.png" alt="Propulsão Instalada" class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Steering System Section -->
+        <section class="py-24 bg-white relative border-t border-slate-200">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 md:order-1">
+                        <div class="rounded-2xl overflow-hidden shadow-2xl border border-slate-100">
+                            <img src="https://i.imgur.com/hEohJuh.png" alt="Sistema de Leme" class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <div class="flex items-center gap-2 mb-4">
+                            <i data-lucide="navigation" class="w-6 h-6 text-primary"></i>
+                            <span class="text-primary font-bold tracking-widest uppercase text-sm">Manobrabilidade</span>
+                        </div>
+                        <h2 class="text-3xl md:text-5xl font-bold font-heading text-slate-900 mb-6">Sistemas de Leme</h2>
+                        <p class="text-xl text-slate-600 font-light leading-relaxed">
+                            Projetamos e fabricamos sistemas de leme robustos e eficientes, garantindo a manobrabilidade e segurança das embarcações.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Manganese Phosphate Section -->
+        <section class="py-24 bg-slate-50 relative border-t border-slate-200">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <i data-lucide="shield" class="w-6 h-6 text-primary"></i>
+                            <span class="text-primary font-bold tracking-widest uppercase text-sm">Tratamento de Superfície</span>
+                        </div>
+                        <h2 class="text-3xl md:text-5xl font-bold font-heading text-slate-900 mb-6">Fosfatização de Manganês</h2>
+                        <p class="text-xl text-slate-600 font-light leading-relaxed">
+                            Oferecemos tratamento de fosfatização de manganês para aumentar a resistência ao desgaste e à corrosão de componentes críticos.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-white">
+                            <img src="https://i.imgur.com/yfLLpTM.png" alt="Fosfatização de Manganês" class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Naval Propulsion Engineering Section -->
+        <section class="py-24 bg-white relative border-t border-slate-200">
+            <div class="container mx-auto px-4 md:px-6">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 lg:order-1">
+                        <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-100">
+                            <img src="https://i.imgur.com/5uBXXZ1.png" alt="Engenharia de Propulsão Naval" class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <div class="flex items-center gap-2 mb-4">
+                            <i data-lucide="cpu" class="w-6 h-6 text-accent"></i>
+                            <span class="text-accent font-bold tracking-widest uppercase text-sm">Tecnologia de Ponta</span>
+                        </div>
+                        <h2 class="text-3xl md:text-5xl font-bold font-heading text-slate-900 mb-6">Engenharia Propulsão Naval</h2>
+                        <p class="text-xl text-slate-600 font-light leading-relaxed">
+                            Utilizando softwares especiais baseados em hidrodinâmica para área Naval, softwares para cálculos de análises de vessels, projeto do plano de linhas, cálculo de velocidade, bollard pull (força de cada item propulsivo) e resistência ao avanço da Hidrocomp Inc.
+                        </p>
+                        <p class="text-lg text-slate-600 font-medium mt-4 border-l-4 border-primary pl-4">
+                            Chegamos a fortes soluções para a Indústria Naval Brasileira, um diferencial em um mercado bastante concorrido.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <div class="container mx-auto px-4 md:px-6 max-w-5xl py-12">
+            <div class="flex justify-between items-center">
+                <a href="atuacao.html" class="text-slate-500 hover:text-primary font-medium flex items-center gap-2">
+                    <i data-lucide="arrow-left" class="w-4 h-4"></i> Outros Mercados
+                </a>
+                <a href="contato.html" class="bg-primary text-white px-6 py-3 rounded-full font-bold hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20">
+                    Solicitar Orçamento
+                </a>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-primary text-white text-center">
+            <div class="container mx-auto px-4 md:px-6 max-w-4xl">
+                <h2 class="text-3xl md:text-5xl font-bold font-heading mb-6">Vamos Conversar Sobre a Sua Necessidade?</h2>
+                <p class="text-lg md:text-xl text-white/90 mb-10 leading-relaxed">Nossa equipe de especialistas está pronta para entender seu projeto e oferecer a solução em aço ideal para você. Clique nos botões abaixo e fale conosco diretamente pelo WhatsApp.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="https://wa.me/551146442969" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
+                        <i data-lucide="message-circle" class="w-6 h-6"></i>
+                        WhatsApp (11) 4644-2969
+                    </a>
+                    <a href="https://wa.me/551146442977" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-white text-primary hover:bg-gray-100 px-8 py-4 rounded-full font-bold text-lg transition-colors shadow-lg">
+                        <i data-lucide="message-circle" class="w-6 h-6"></i>
+                        WhatsApp (11) 4644-2977
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-16 border-t border-white/10">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="space-y-6">
+                    <img src="https://i.imgur.com/yxFATfL.png" alt="Aceros Logo" class="h-20 w-auto brightness-0 invert">
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Líder em soluções metalúrgicas de alta performance, atendendo aos setores mais exigentes com inovação e qualidade superior.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i data-lucide="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold font-heading mb-6">Links Rápidos</h3>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="sobre.html" class="hover:text-white transition-colors">Sobre Nós</a></li>
+                        <li><a href="atuacao.html" class="hover:text-white transition-colors">Mercado de Atuação</a></li>
+                        <li><a href="inovacao.html" class="hover:text-white transition-colors">Inovação</a></li>
+                        <li><a href="contato.html" class="hover:text-white transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold font-heading mb-6">Mercados</h3>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li><a href="atuacao-siderurgia.html" class="hover:text-white transition-colors">Siderurgia</a></li>
+                        <li><a href="atuacao-naval.html" class="hover:text-white transition-colors">Naval</a></li>
+                        <li><a href="atuacao-mineracao.html" class="hover:text-white transition-colors">Mineração</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Química & Petroquímica</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Mecânica Pesada</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold font-heading mb-6">Contato</h3>
+                    <ul class="space-y-4 text-slate-400 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-primary shrink-0"></i>
+                            <span>Rua Exemplo, 123 - Distrito Industrial<br>Itaquaquecetuba - SP</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-primary shrink-0 mt-1"></i>
+                            <div class="flex flex-col">
+                                <span>+55 (11) 4644-2969</span>
+                                <span>+55 (11) 4644-2977</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-primary shrink-0 mt-1"></i>
+                            <div class="flex flex-col">
+                                <span>vendas@metalurgicadaniela.com.br</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-16 pt-8 border-t border-white/5 text-center text-slate-500 text-xs">
+                <p>&copy; 2024 Metalúrgica Daniela. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+    <!-- Google Translate -->
+    <div id="google_translate_element" style="display:none;"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'pt', includedLanguages: 'pt,en,es,de,it,zh-CN,fr', autoDisplay: false}, 'google_translate_element');
+        }
+        function translatePage(lang) {
+            var selectField = document.querySelector("select.goog-te-combo");
+            if (selectField) {
+                selectField.value = lang;
+                selectField.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
